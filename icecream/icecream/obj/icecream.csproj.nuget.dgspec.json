@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\icecream.csproj": {}
+    "C:\\Users\\Administrator\\Documents\\GitHub\\iceCream\\icecream\\icecream\\icecream.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\icecream.csproj": {
+    "C:\\Users\\Administrator\\Documents\\GitHub\\iceCream\\icecream\\icecream\\icecream.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\icecream.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\iceCream\\icecream\\icecream\\icecream.csproj",
         "projectName": "icecream",
-        "projectPath": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\icecream.csproj",
+        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\iceCream\\icecream\\icecream\\icecream.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\iceCream\\icecream\\icecream\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
