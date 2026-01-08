@@ -1,0 +1,302 @@
+/* Feedback Page Specific Styles */
+:root {
+    --primary: #FF6B8B;
+    --secondary: #FFD166;
+    --accent: #06D6A0;
+    --dark: #2D3047;
+    --light: #FFF9F2;
+}
+
+.feedback-hero-section {
+    position: relative;
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #FFF9F2 0%, #FFE8E8 100%);
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.feedback-container {
+    background: white;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(255, 107, 139, 0.15);
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255, 107, 139, 0.1);
+}
+
+.feedback-header {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 107, 139, 0.1);
+}
+
+.feedback-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rating-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.average-rating .stars {
+    color: #FFD700;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.average-rating .rating-text {
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.feedback-form .form-group {
+    margin-bottom: 25px;
+}
+
+.feedback-form .form-label {
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.feedback-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.feedback-categories .form-check-inline {
+    margin-right: 0;
+}
+
+.feedback-categories .form-check-label {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 2px solid #e9ecef;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.feedback-categories .form-check-input:checked + .form-check-label {
+    border-color: var(--primary);
+    background: rgba(255, 107, 139, 0.1);
+    color: var(--primary);
+}
+
+/* Star Rating */
+.star-rating {
+    direction: rtl;
+    display: inline-flex;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    color: #ddd;
+    padding: 0 5px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #FFD700;
+}
+
+.star-rating label:hover:before,
+.star-rating label:hover ~ label:before,
+.star-rating input:checked ~ label:before {
+    content: '\f005';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Flavor Checkboxes */
+.flavor-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.flavor-checkboxes .form-check-label {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.flavor-checkboxes .form-check-input:checked + .form-check-label {
+    border-color: var(--secondary);
+    background: rgba(255, 209, 102, 0.1);
+    color: var(--dark);
+}
+
+/* Character Counter */
+.char-count {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+/* Submit Button */
+.feedback-btn {
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feedback-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 139, 0.3);
+}
+
+.feedback-btn:active {
+    transform: translateY(0);
+}
+
+/* Stats */
+.stat-item {
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 107, 139, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-item h4 {
+    color: var(--primary);
+    font-weight: 700;
+    margin: 10px 0 5px;
+}
+
+.stat-item p {
+    color: var(--dark);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Floating Labels */
+.floating-label {
+    position: relative;
+}
+
+.floating-label label {
+    position: absolute;
+    top: 18px;
+    left: 15px;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    padding: 0 5px;
+    background: white;
+}
+
+.floating-label .form-control {
+    padding: 25px 15px 10px 45px;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.floating-label .form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 107, 139, 0.1);
+}
+
+.floating-label .form-control:focus + label,
+.floating-label .form-control:not(:placeholder-shown) + label {
+    top: 8px;
+    font-size: 0.8rem;
+    color: var(--primary);
+}
+
+.floating-label .input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    z-index: 2;
+}
+
+.floating-label .form-control:focus ~ .input-icon {
+    color: var(--primary);
+}
+
+.floating-label textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feedback-container {
+        padding: 25px;
+        margin: 0 15px;
+    }
+    
+    .feedback-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .feedback-categories {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .flavor-checkboxes {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .feedback-hero-section {
+        padding: 100px 0 40px;
+    }
+    
+    .feedback-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .rating-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

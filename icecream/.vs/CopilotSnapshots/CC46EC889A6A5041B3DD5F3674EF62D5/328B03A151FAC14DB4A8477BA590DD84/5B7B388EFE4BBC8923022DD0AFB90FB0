@@ -1,0 +1,91 @@
+﻿@model icecream.Models.User
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <!-- Membership Type Dropdown -->
+            <div class="form-group">
+                <label asp-for="MembershipType" class="control-label"></label>
+                <select asp-for="MembershipType" class="form-control">
+                    <option value="">-- Select Membership --</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Yearly">Yearly</option>
+                </select>
+                <span asp-validation-for="MembershipType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MembershipAmount" class="control-label"></label>
+                <input asp-for="MembershipAmount" class="form-control" />
+                <span asp-validation-for="MembershipAmount" class="text-danger"></span>
+            </div>
+
+            <!-- Payment Status Dropdown -->
+            <div class="form-group">
+                <label asp-for="PaymentStatus" class="control-label"></label>
+                <select asp-for="PaymentStatus" class="form-control">
+                    <option value="">-- Select Payment Status --</option>
+                    <option value="Paid">Paid</option>
+                    <option value="Unpaid">Unpaid</option>
+                    <option value="Pending">Pending</option>
+                </select>
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Back</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+✅ Result
+✔ MembershipType → Dropdown (Monthly / Yearly)
+✔ P
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

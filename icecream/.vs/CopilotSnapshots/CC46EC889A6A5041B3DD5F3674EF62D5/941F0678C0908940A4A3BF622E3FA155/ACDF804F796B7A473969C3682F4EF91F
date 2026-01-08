@@ -1,0 +1,110 @@
+﻿@model icecream.Models.Recipe
+
+@{
+ ViewData["Title"] = "Recipe Details";
+ Layout = "~/Views/Shared/_DashLayout.cshtml";
+}
+
+<style>
+.recipe-details {
+ max-width:980px;
+ margin:2rem auto;
+ background:#fff;
+ border-radius:12px;
+ padding:1.25rem;
+ box-shadow:08px24px rgba(31,41,55,0.06);
+ border:1px solid rgba(0,0,0,0.04);
+}
+.header { display:flex; gap:1rem; align-items:flex-start; }
+.header .thumb { width:160px; height:120px; border-radius:8px; overflow:hidden; flex:00160px; border:1px solid rgba(0,0,0,0.04); background:#fafafa; display:flex; align-items:center; justify-content:center; }
+.header .thumb img { width:100%; height:100%; object-fit:cover; }
+.header .meta { flex:1; }
+.title { margin:0; font-size:1.5rem; font-weight:700; }
+.subtitle { color:#6b7280; margin-top:6px; }
+.tags { margin-top:10px; display:flex; gap:.5rem; flex-wrap:wrap; }
+.tag { background:#fff5f8; color:#9f1239; padding:.25rem .5rem; border-radius:999px; font-size:.85rem; }
+.content { display:grid; grid-template-columns:1fr320px; gap:1.25rem; margin-top:1rem; }
+.main { background:transparent; }
+.side { background:#fbfbfd; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.03); height:fit-content; }
+.section { margin-bottom:1rem; }
+.section h4 { margin:00 .5rem0; font-size:1.05rem; }
+.ingredients { list-style:disc; padding-left:1.1rem; }
+.procedure { white-space:pre-wrap; line-height:1.55; }
+.meta-row { display:flex; justify-content:space-between; gap:8px; align-items:center; }
+.actions { display:flex; gap:.5rem; justify-content:flex-end; margin-top:1rem; }
+.btn-outline { background:transparent; border:1px solid rgba(0,0,0,0.08); padding:.45rem .75rem; border-radius:.45rem; text-decoration:none; color:#333; }
+.btn-primary { background:linear-gradient(90deg,#ff6a88,#ff9076); border:none; color:#fff; padding:.5rem .9rem; border-radius:.45rem; }
+@@media (max-width:991.98px) { .content { grid-template-columns:1fr; } .header { flex-direction:column; align-items:flex-start; } .header .thumb { width:100%; height:220px; } }
+</style>
+
+<div class="recipe-details">
+ <div class="header">
+ <div class="thumb">
+ <img src="@(String.IsNullOrWhiteSpace(Model?.ImagePath) ? "/images/placeholder-image.png" : Model.ImagePath)" alt="@Model?.FlavorName" />
+ </div>
+ <div class="meta">
+ <h1 class="title">@Model?.FlavorName</h1>
+ <div class="subtitle">@(!String.IsNullOrWhiteSpace(Model?.RecipeProcedure) ? (Model.RecipeProcedure.Length >140 ? Model.RecipeProcedure.Substring(0,140) + "…" : Model.RecipeProcedure) : "")</div>
+ <div class="tags">
+ <span class="tag">Added by: @((Model?.AddedByAdminNavigation != null) ? Model.AddedByAdminNavigation.AdminId.ToString() : "Admin")</span>
+ <span class="tag">Created: @(Model?.CreatedAt.HasValue == true ? Model.CreatedAt.Value.ToString("yyyy-MM-dd") : "-")</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="content">
+ <div class="main">
+ <div class="section">
+ <h4>Ingredients</h4>
+ @if (!String.IsNullOrWhiteSpace(Model?.Ingredients))
+ {
+ <ul class="ingredients">
+ @foreach (var line in (Model.Ingredients ?? string.Empty).Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries))
+ {
+ <li>@line</li>
+ }
+ </ul>
+ }
+ else
+ {
+ <div class="text-muted">No ingredients provided.</div>
+ }
+ </div>
+
+ <div class="section">
+ <h4>Preparation</h4>
+ @if (!String.IsNullOrWhiteSpace(Model?.RecipeProcedure))
+ {
+ <div class="procedure">@Model.RecipeProcedure</div>
+ }
+ else
+ {
+ <div class="text-muted">No procedure available.</div>
+ }
+ </div>
+ </div>
+
+ <aside class="side">
+ <div class="section">
+ <div class="detail-key">Recipe ID</div>
+ <div class="detail-value">@Model?.RecipeId</div>
+ </div>
+ <div class="section">
+ <div class="detail-key">Image path</div>
+ <div class="detail-value text-truncate">@(String.IsNullOrWhiteSpace(Model?.ImagePath) ? "-" : Model.ImagePath)</div>
+ </div>
+ <div class="section">
+ <div class="detail-key">Added by (Admin)</div>
+ <div class="detail-value">@((Model?.AddedByAdminNavigation != null) ? Model.AddedByAdminNavigation.AdminId.ToString() : "-")</div>
+ </div>
+ <div class="section">
+ <div class="detail-key">Created at</div>
+ <div class="detail-value">@(Model?.CreatedAt.HasValue == true ? Model.CreatedAt.Value.ToString("yyyy-MM-dd HH:mm") : "-")</div>
+ </div>
+ <div class="actions">
+ <a asp-action="Edit" asp-route-id="@Model?.RecipeId" class="btn-outline">Edit</a>
+ <a asp-action="Delete" asp-route-id="@Model?.RecipeId" class="btn-primary">Delete</a>
+ </div>
+ </aside>
+ </div>
+</div>

@@ -1,0 +1,182 @@
+﻿@model icecream.Models.Recipe
+
+@{
+ ViewData["Title"] = "Create";
+ Layout = "~/Views/Shared/_DashLayout.cshtml";
+}
+
+<style>
+ /* Container and card styling */
+ .recipe-card {
+ border-radius:14px;
+ overflow: hidden;
+ box-shadow:08px28px rgba(34,40,49,0.08);
+ border:1px solid rgba(200,200,200,0.12);
+ }
+ .recipe-header {
+ padding:20px24px;
+ background: linear-gradient(90deg, #ff9a9e0%, #fad0c450%, #ffd194100%);
+ color: #2b2b2b;
+ }
+ .recipe-header h4 { margin:006px0; font-weight:700; }
+ .recipe-body { padding:24px; background: #fff; }
+
+ /* Floating form tweaks */
+ .form-floating > .form-control, .form-floating > .form-select {
+ height: calc(3.5rem +2px);
+ padding:1rem0.75rem;
+ border-radius:10px;
+ border:1px solid rgba(220,30,58,0.06);
+ background-color: #fff;
+ }
+
+ textarea.form-control {
+ height: auto;
+ min-height:100px;
+ padding-top:1rem;
+ }
+
+ /* File input and preview */
+ .file-note { color: #6c757d; font-size:0.9rem; }
+ .image-preview {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-radius:10px;
+ border:1px dashed rgba(200,200,200,0.3);
+ padding:12px;
+ background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,250,0.9));
+ }
+ .image-preview img { max-height:180px; border-radius:8px; }
+
+ /* Buttons */
+ .btn-primary {
+ background: linear-gradient(90deg,#ff6a880%,#ff9076100%);
+ border: none;
+ box-shadow:06px18px rgba(255,105,135,0.12);
+ padding:10px18px;
+ }
+ .btn-outline-secondary { padding:10px18px; }
+
+ /* Small screens spacing */
+ @@media (max-width:575.98px) {
+ .recipe-body { padding:16px; }
+ .form-floating > .form-control { height: calc(3.25rem +2px); }
+ }
+</style>
+
+<div class="container py-5">
+ <div class="row justify-content-center">
+ <div class="col-12 col-md-10 col-lg-8">
+ <div class="recipe-card">
+ <div class="recipe-header">
+ <h4>Create New Recipe</h4>
+ <small class="text-muted">Add a new ice cream flavor with ingredients and preparation steps.</small>
+ </div>
+ <div class="recipe-body">
+ <form asp-action="Create" enctype="multipart/form-data" novalidate>
+ <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+ <div class="row g-3">
+ <div class="col-12">
+ <div class="form-floating">
+ <input asp-for="FlavorName" class="form-control" placeholder="Flavor name" />
+ <label asp-for="FlavorName">Flavor name</label>
+ <span asp-validation-for="FlavorName" class="text-danger small"></span>
+ </div>
+ </div>
+
+ <div class="col-12 col-md-6">
+ <div class="form-floating">
+ <textarea asp-for="Ingredients" class="form-control" placeholder="Ingredients" rows="3"></textarea>
+ <label asp-for="Ingredients">Ingredients</label>
+ <span asp-validation-for="Ingredients" class="text-danger small"></span>
+ </div>
+ </div>
+
+ <div class="col-12 col-md-6">
+ <div class="form-floating">
+ <textarea asp-for="RecipeProcedure" class="form-control" placeholder="Procedure" rows="4"></textarea>
+ <label asp-for="RecipeProcedure">Procedure</label>
+ <span asp-validation-for="RecipeProcedure" class="text-danger small"></span>
+ </div>
+ </div>
+
+ <div class="col-12 col-md-6">
+ <label class="form-label">Image</label>
+ <div class="mb-2">
+ <input type="file" name="file" asp-for="ImagePath" accept="image/*" class="form-control" id="imageInput" />
+ </div>
+ <div class="d-flex justify-content-between align-items-center">
+ <small class="file-note">Supported: jpg, png, gif, webp. Recommended &lt;2MB.</small>
+ </div>
+ <span asp-validation-for="ImagePath" class="text-danger small"></span>
+
+ <div class="mt-3 image-preview">
+ <img id="imagePreview" src="@(String.IsNullOrEmpty(Model?.ImagePath) ? "/images/placeholder-image.png" : Model.ImagePath)" alt="Preview" class="img-fluid" style="display:block;" />
+ </div>
+ </div>
+
+ <div class="col-12 col-md-6">
+ <div class="form-floating">
+ <select asp-for="AddedByAdmin" class="form-select" asp-items="ViewBag.AddedByAdmin">
+ <option value="">Select Admin</option>
+ </select>
+ <label asp-for="AddedByAdmin">Added by (Admin)</label>
+ <span asp-validation-for="AddedByAdmin" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating mt-3">
+ <input asp-for="CreatedAt" class="form-control" placeholder="Created at" />
+ <label asp-for="CreatedAt">Created at</label>
+ <span asp-validation-for="CreatedAt" class="text-danger small"></span>
+ </div>
+ </div>
+
+ <div class="col-12 d-flex justify-content-end gap-2">
+ <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+ <button type="submit" class="btn btn-primary">Create</button>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+
+@section Scripts {
+ <script>
+ (function () {
+ var input = document.getElementById('imageInput');
+ var preview = document.getElementById('imagePreview');
+
+ if (!input) return;
+
+ input.addEventListener('change', function (e) {
+ var file = e.target.files && e.target.files[0];
+ if (!file) {
+ preview.style.display = 'none';
+ preview.src = '';
+ return;
+ }
+
+ var allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+ if (allowed.indexOf(file.type) === -1) {
+ alert('Unsupported image format. Please select a JPG, PNG, GIF or WEBP file.');
+ input.value = '';
+ preview.style.display = 'none';
+ return;
+ }
+
+ var reader = new FileReader();
+ reader.onload = function (evt) {
+ preview.src = evt.target.result;
+ preview.style.display = 'block';
+ };
+ reader.readAsDataURL(file);
+ });
+ })();
+ </script>
+}
+

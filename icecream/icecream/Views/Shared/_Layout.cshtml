@@ -1,0 +1,197 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creamy Bar - Premium Ice Cream</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/cs/index.css">
+    <link rel="stylesheet" href="~/assets/cs/aboutus.css">
+    <link rel="stylesheet" href="~/assets/cs/Blog.css">
+    <link rel="stylesheet" href="~/assets/cs/contact.css">
+    <link rel="stylesheet" href="~/assets/cs/faq.css">
+   
+    <link rel="stylesheet" href="~/assets/cs/feedback.css">
+    <link rel="stylesheet" href="~/assets/cs/Flavours.css">
+    <link rel="stylesheet" href="~/assets/cs/Gallery.css">
+     <link rel="stylesheet" href="~/assets/cs/Login.css">
+    <link rel="stylesheet" href="~/assets/cs/recipies.css">
+  
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo-font" href="#">CreamyBar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="About">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Flavours">Flavours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="recipies">recipies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gallery
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                            <li>
+                                <a class="dropdown-item" asp-controller="Feedbacks" asp-action="Create">Feedback</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="OurTeam">Our Team</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="Home" asp-action="Faq">FAQ</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    @if (Context.Session.GetString("Username") == null)
+                    {
+                        <!-- Login Button -->
+                        <li class="nav-item">
+                            <a class="nav-link btn-login-nav"
+                               asp-controller="Users"
+                               asp-action="Login">
+                                <i class="fas fa-sign-in-alt me-1"></i> Login
+                            </a>
+                        </li>
+                    }
+                    else if (Context.Session.GetString("Role") == "User")
+                    {
+                        <!-- Username -->
+                        <li class="nav-item">
+                            <span class="nav-link fw-bold text-white">
+                                <i class="fas fa-user me-1"></i>
+                                @Context.Session.GetString("Username")
+                            </span>
+                        </li>
+
+                        <!-- Logout -->
+                        <li class="nav-item">
+                            <a class="nav-link text-danger"
+                               asp-controller="Users"
+                               asp-action="Logout">
+                                <i class="fas fa-sign-out-alt me-1"></i> Logout
+                            </a>
+                        </li>
+                    }
+
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="footer-logo logo-font">CreamyBar</div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a asp-controller="Home" asp-action="index" class="text-light text-decoration-none">Home</a></li>
+                                <li class="mb-2"><a asp-controller="Home" asp-action="About" class="text-light text-decoration-none">About Us</a></li>
+                                <li class="mb-2"><a asp-controller="Home" asp-action="Flavours" class="text-light text-decoration-none">Flavours</a></li>
+                                <li class="mb-2"><a asp-controller="Home" asp-action="OurTeam" class="text-light text-decoration-none">OurTeam</a></li> 
+                                <li class="mb-2"><a asp-controller="Home" asp-action="recipies" class="text-light text-decoration-none">recipies</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a asp-controller="Home" asp-action="Gallery" class="text-light text-decoration-none">Gallery</a></li>
+                                <li class="mb-2"><a asp-controller="Home" asp-action="Blog" class="text-light text-decoration-none">Blog</a></li>
+                                <li class="mb-2"><a  asp-controller="Home" asp-action="Faq" class="text-light text-decoration-none">FAQ</a></li>
+                                <li class="mb-2"><a  asp-controller="Home" asp-action="Feedback" class="text-light text-decoration-none">Feedback</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="mb-3">Newsletter</h5>
+                    <p>Subscribe to get updates on new flavors and special offers.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Creamy Bar - Ice Cream. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Bubble -->
+    <div class="chat-bubble" data-bs-toggle="tooltip" data-bs-placement="left" title="Hi! What can I do for you?">
+        <i class="fas fa-comment"></i>
+    </div>
+
+    <!-- In your HTML file, after the footer section, keep only these script tags -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="~/assets/js/index.js"></script>
+    <script src="~/assets/js/aboutus.js"></script>
+    <script src="~/assets/js/Blog.js"></script>
+    <script src="~/assets/js/contact.js"></script>
+    <script src="~/assets/js/Faq.js"></script>
+    <script src="~/assets/js/Feedback.js"></script>
+    <script src="~/assets/js/Flavours.js"></script>
+    <script src="~/assets/js/Gallery.js"></script>
+    <script src="~/assets/js/Login.js"></script>
+    <script src="~/assets/js/recipies.js"></script>
+    <script src="~/assets/js/OurTeam.js"></script>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

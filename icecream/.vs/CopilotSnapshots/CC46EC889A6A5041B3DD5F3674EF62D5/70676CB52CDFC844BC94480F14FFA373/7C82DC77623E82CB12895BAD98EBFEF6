@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - CreamyBar Admin</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/dashboard/css/dashboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/dashboard/css/style.css" asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-container">
+            <h2>
+                <div class="icecream-cone">
+                    <div class="scoop"></div>
+                    <div class="cone"></div>
+                    <div class="cherry"></div>
+                </div>
+                <span class="logo-text">CreamyBar</span>
+            </h2>
+        </div>
+        <ul class="nav-links">
+            <li><a asp-controller="Dashboard" asp-action="Index" class="active"><i class="fas fa-chart-line"></i> <span>Dashboard</span></a></li>
+            <li><a asp-controller="Users" asp-action="Index"><i class="fas fa-user-friends"></i> <span>Users</span></a></li>
+            <li><a asp-controller="Dashboard" asp-action="Orders"><i class="fas fa-receipt"></i> <span>Orders</span></a></li>
+            <li><a asp-controller="Dashboard" asp-action="Analytics"><i class="fas fa-chart-pie"></i> <span>Analytics</span></a></li>
+            <li><a asp-controller="Dashboard" asp-action="Settings"><i class="fas fa-sliders-h"></i> <span>Settings</span></a></li>
+            <li><a asp-controller="Feedbacks" asp-action="Index"><i class="fas fa-comments"></i> <span>Feedback</span></a></li>
+            <li><a asp-controller="Recipes" asp-action="Create"><i class="fas fa-ice-cream"></i> <span>Recipe</span></a></li>
+            <li><a asp-controller="RecipeBooks" asp-action="Create"><i class="fas fa-book-open"></i> <span>Recipe Book</span></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+
+        <header class="header">
+            <h1>
+                <div class="icecream-cone" style="width: 40px; height: 48px; display: inline-block; vertical-align: middle;">
+                    <div class="scoop" style="width: 32px; height: 28px;"></div>
+                    <div class="cone" style="width: 22px; height: 24px;"></div>
+                </div>
+                CreamyBar Admin Dashboard
+            </h1>
+            <div class="admin-info">
+                <div class="admin-avatar">CB</div>
+                <div>
+                    <h3>CreamyBar Admin</h3>
+                    <p>Super Administrator</p>
+                </div>
+                <button class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </header>
+
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/dashboard/js/chart.js" asp-append-version="true"></script>
+    <script src="~/dashboard/js/main.js" asp-append-version="true"></script>
+    <script src="~/dashboard/js/navigation.js" asp-append-version="true"></script>
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

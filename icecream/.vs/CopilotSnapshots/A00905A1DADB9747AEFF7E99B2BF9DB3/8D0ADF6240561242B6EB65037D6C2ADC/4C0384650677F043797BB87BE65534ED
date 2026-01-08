@@ -1,0 +1,143 @@
+﻿@model icecream.Models.User
+
+@{
+ ViewData["Title"] = "Create User";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+/* Professional form card */
+.user-card {
+ max-width:820px;
+ margin:0 auto;
+ background:#ffffff;
+ border-radius:12px;
+ padding:1.5rem;
+ box-shadow:08px24px rgba(33,37,41,0.06);
+ border:1px solid rgba(0,0,0,0.04);
+}
+.user-card .card-header {
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ margin-bottom:0.75rem;
+}
+.user-card h2 { margin:0; font-size:1.25rem; }
+.user-sub { color:#6b6b6b; font-size:0.95rem; }
+.form-grid { display:grid; grid-template-columns:1fr1fr; gap:1rem; margin-top:1rem; }
+.form-full { grid-column:1/-1; }
+.form-floating > .form-control, .form-floating > .form-select { height: calc(3.4rem +2px); padding:1rem0.75rem; border-radius:8px; }
+.form-actions { display:flex; gap:.5rem; justify-content:flex-end; margin-top:1.25rem; }
+.btn-cancel { background:transparent; border:1px solid rgba(0,0,0,0.06); }
+.note { color:#6c757d; font-size:0.9rem; }
+
+@@media (max-width:767.98px) {
+ .form-grid { grid-template-columns:1fr; }
+ .form-actions { justify-content:stretch; flex-direction:column-reverse; }
+}
+</style>
+
+<div class="container py-4">
+ <div class="user-card">
+ <div class="card-header">
+ <div>
+ <h2>Create User</h2>
+ <div class="user-sub">Add a new user and configure membership/payment details</div>
+ </div>
+ <div class="note">Fields marked with * are required</div>
+ </div>
+
+ <form asp-action="Create" method="post" class="needs-validation" novalidate>
+ <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+ <div class="form-grid">
+ <div class="form-floating">
+ <input asp-for="FullName" class="form-control" placeholder="Full name" />
+ <label asp-for="FullName">Full name *</label>
+ <span asp-validation-for="FullName" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating">
+ <input asp-for="Email" class="form-control" placeholder="Email address" />
+ <label asp-for="Email">Email address *</label>
+ <span asp-validation-for="Email" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating">
+ <input asp-for="Password" type="password" class="form-control" placeholder="Password" id="passwordInput" />
+ <label asp-for="Password">Password *</label>
+ <span asp-validation-for="Password" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating">
+ <input asp-for="Phone" class="form-control" placeholder="Phone" />
+ <label asp-for="Phone">Phone</label>
+ <span asp-validation-for="Phone" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating form-full">
+ <input asp-for="Address" class="form-control" placeholder="Address" />
+ <label asp-for="Address">Address</label>
+ <span asp-validation-for="Address" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating">
+ <select asp-for="MembershipType" class="form-select" aria-label="Membership type">
+ <option value="">Select membership</option>
+ <option value="Monthly">Monthly</option>
+ <option value="Yearly">Yearly</option>
+ </select>
+ <label asp-for="MembershipType">Membership type</label>
+ <span asp-validation-for="MembershipType" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating">
+ <input asp-for="MembershipAmount" type="number" step="0.01" class="form-control" placeholder="Membership amount" />
+ <label asp-for="MembershipAmount">Membership amount</label>
+ <span asp-validation-for="MembershipAmount" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating">
+ <select asp-for="PaymentStatus" class="form-select" aria-label="Payment status">
+ <option value="">Select payment status</option>
+ <option value="Paid">Paid</option>
+ <option value="Unpaid">Unpaid</option>
+ <option value="Pending">Pending</option>
+ </select>
+ <label asp-for="PaymentStatus">Payment status</label>
+ <span asp-validation-for="PaymentStatus" class="text-danger small"></span>
+ </div>
+
+ <div class="form-full">
+ <div class="form-text note">Tip: Use a secure password. You can send login details to the user after creating the account.</div>
+ </div>
+ </div>
+
+ <div class="form-actions">
+ <a asp-action="Index" class="btn btn-cancel">Back</a>
+ <button type="submit" class="btn btn-primary">Create user</button>
+ </div>
+ </form>
+ </div>
+</div>
+
+@section Scripts {
+ <script>
+ // Basic client-side validation bootstrap-style
+ (function () {
+ 'use strict'
+ var forms = document.querySelectorAll('.needs-validation')
+ Array.prototype.slice.call(forms).forEach(function (form) {
+ form.addEventListener('submit', function (event) {
+ if (!form.checkValidity()) {
+ event.preventDefault()
+ event.stopPropagation()
+ }
+ form.classList.add('was-validated')
+ }, false)
+ })
+ })();
+ </script>
+}
+

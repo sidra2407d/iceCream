@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewData["Title"] = "Flavours";
+}
+
+
+
+<!-- Hero Section with Interactive Flavor Circle -->
+<section class="hero-section" id="home">
+    <div class="strawberries-bg"></div>
+    <div class="left-circle"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Discover Our Flavors</h1>
+                    <h2 class="hero-subtitle">Explore <span class="logo-font" style="color: var(--secondary);">20+ Unique Creations</span></h2>
+                    <p class="lead mb-4">From classic favorites to innovative creations, each flavor is crafted with passion and the finest ingredients.</p>
+
+                    <div class="flavor-text" id="current-flavor">
+                        Featured Flavor: <span id="flavor-name">Chocolate Truffle</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="#flavors" class="btn btn-primary">
+                            <i class="fas fa-list me-2"></i> Browse All Flavors
+                        </a>
+                        <a href="#flavor-of-the-day" class="btn btn-secondary">
+                            <i class="fas fa-crown me-2"></i> Today's Special
+                        </a>
+                    </div>
+
+                    <div class="flavor-indicators" id="flavor-indicators">
+                        <!-- Flavor indicators will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="flavor-circle" data-aos="fade-left" data-aos-delay="300">
+                    <div class="circle-decoration"></div>
+
+                    <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Ice Cream"
+                         class="flavor-image"
+                         id="main-flavor-image">
+
+                    <div class="flavor-dots">
+                        <div class="flavor-dot flavor-dot-1" data-flavor="chocolate">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-2" data-flavor="strawberry">
+                            <i class="fas fa-strawberry"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-3" data-flavor="vanilla">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-4" data-flavor="blueberry">
+                            <i class="fas fa-blender"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-5" data-flavor="mint">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-6" data-flavor="caramel">
+                            <i class="fas fa-candy-cane"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Flavors Section -->
+<section class="flavors-section" id="flavors">
+    <div class="container">
+        <!-- Flavor of the Day -->
+        <div class="flavor-of-the-day" id="flavor-of-the-day" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="mb-3">Flavor of the Day</h3>
+                    <h4 class="mb-3">Chocolate Truffle</h4>
+                    <p class="mb-4">Rich, dark chocolate ice cream swirled with velvety chocolate truffle pieces and a hint of sea salt. A decadent treat for true chocolate lovers.</p>
+                    <button class="flavor-modal-btn" data-bs-toggle="modal" data-bs-target="#flavorModal" data-flavor-id="15">
+                        <i class="fas fa-info-circle me-2"></i> View Details
+                    </button>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Chocolate Truffle"
+                         class="img-fluid rounded-circle shadow"
+                         style="width: 200px; height: 200px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="flavor-of-the-day-badge">
+                <i class="fas fa-crown me-2"></i> Special Today
+            </div>
+        </div>
+
+        <!-- Flavor Filter -->
+        <div class="flavor-filter" data-aos="fade-up">
+            <div class="text-center mb-4">
+                <h3 class="mb-3">Filter Flavors</h3>
+            </div>
+            <div class="text-center">
+                <button class="filter-btn active" data-filter="all">All Flavors</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
+                <button class="filter-btn" data-filter="fruity">Fruity</button>
+                <button class="filter-btn" data-filter="chocolate">Chocolate</button>
+                <button class="filter-btn" data-filter="nutty">Nutty</button>
+                <button class="filter-btn" data-filter="creamy">Creamy</button>
+            </div>
+        </div>
+
+        <!-- Flavors Grid -->
+        <div class="row" id="flavors-grid">
+            <!-- Flavors will be dynamically loaded here -->
+        </div>
+    </div>
+</section>
+@* <div class="modal fade flavor-detail-modal" id="flavorModal" tabindex="-1" aria-labelledby="flavorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title logo-font" id="flavorModalLabel">Flavor Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img id="modal-flavor-img" src="" alt="Flavor" class="flavor-modal-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 id="modal-flavor-name" class="mb-3"></h3>
+                        <p id="modal-flavor-description" class="mb-4"></p>
+
+                        <div class="modal-flavor-tags" id="modal-flavor-tags">
+                            <!-- Tags will be added here -->
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <div class="stat">
+                                    <div class="stat-value" id="modal-flavor-rating">4.8</div>
+                                    <div class="stat-label">Rating</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat">
+                                    <div class="stat-value" id="modal-flavor-calories">240</div>
+                                    <div class="stat-label">Calories/scoop</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h6>Ingredients:</h6>
+                            <p id="modal-flavor-ingredients"></p>
+                        </div>
+
+                        <div class="d-grid">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-shopping-cart me-2"></i> Add to Order
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> *@

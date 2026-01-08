@@ -1,0 +1,80 @@
+﻿@model icecream.Models.User
+
+@{
+ ViewData["Title"] = "User Details";
+ Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+.user-details-card {
+ max-width:900px;
+ margin:2rem auto;
+ background:#fff;
+ border-radius:12px;
+ padding:1.5rem;
+ box-shadow:08px24px rgba(31,41,55,0.06);
+ border:1px solid rgba(0,0,0,0.04);
+}
+.header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.profile { display:flex; gap:16px; align-items:center; }
+.avatar {
+ width:72px; height:72px; border-radius:12px; display:inline-flex; align-items:center; justify-content:center;
+ background: linear-gradient(135deg,#ff9a9e,#fad0c4); color:#fff; font-weight:700; font-size:1.25rem;
+}
+.user-meta h2 { margin:0; font-size:1.25rem; }
+.user-meta p { margin:4px000; color:#6b7280; }
+.info-grid { display:grid; grid-template-columns:1fr1fr; gap:1rem; margin-top:1rem; }
+.info-card { background:#fbfbfd; padding:12px; border-radius:8px; border:1px solid rgba(0,0,0,0.03); }
+.info-key { font-size:0.85rem; color:#6b7280; }
+.info-value { margin-top:6px; font-weight:600; }
+.actions { display:flex; gap:0.5rem; align-items:center; }
+.btn-primary { background:#0d6efd; color:#fff; padding:.5rem .85rem; border-radius:.5rem; text-decoration:none; }
+.btn-outline { background:transparent; border:1px solid rgba(0,0,0,0.06); padding:.45rem .85rem; border-radius:.5rem; text-decoration:none; color:#333; }
+@@media (max-width:767.98px) {
+ .info-grid { grid-template-columns:1fr; }
+ .header { flex-direction:column; align-items:flex-start; gap:12px; }
+}
+</style>
+
+<div class="user-details-card">
+ <div class="header">
+ <div class="profile">
+ <div class="avatar">@(
+ string.IsNullOrWhiteSpace(Model?.FullName) ? "U" : string.Join("", (Model.FullName ?? "").Split(' ').Where(s => !string.IsNullOrWhiteSpace(s)).Select(s => s[0])).ToUpper()
+ )</div>
+ <div class="user-meta">
+ <h2>@Model?.FullName</h2>
+ <p class="small">@Model?.Email</p>
+ </div>
+ </div>
+
+ <div class="actions">
+ <a asp-action="Edit" asp-route-id="@Model?.UserId" class="btn-outline">Edit</a>
+ <a asp-action="Delete" asp-route-id="@Model?.UserId" class="btn-primary">Delete</a>
+ <a asp-action="Index" class="btn-outline">Back</a>
+ </div>
+ </div>
+
+ <div class="info-grid">
+ <div class="info-card">
+ <div class="info-key">Phone</div>
+ <div class="info-value">@Model?.Phone</div>
+
+ <div class="info-key" style="margin-top:10px;">Address</div>
+ <div class="info-value">@Model?.Address</div>
+ </div>
+
+ <div class="info-card">
+ <div class="info-key">Membership</div>
+ <div class="info-value">@Model?.MembershipType @if(Model?.MembershipAmount != null) { <span class="text-muted" style="font-weight:400; font-size:0.9rem; display:block;">@String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C}", Model.MembershipAmount)</span> }</div>
+
+ <div class="info-key" style="margin-top:10px;">Payment status</div>
+ <div class="info-value">@Model?.PaymentStatus</div>
+ </div>
+ </div>
+
+ <div style="margin-top:14px;">
+ <div class="info-key">Created at</div>
+ <div class="info-value">@(Model?.CreatedAt.HasValue == true ? Model.CreatedAt.Value.ToString("yyyy-MM-dd HH:mm") : "-")</div>
+ </div>
+</div>

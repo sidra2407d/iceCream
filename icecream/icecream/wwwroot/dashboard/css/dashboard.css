@@ -1,0 +1,8 @@
+/* Dashboard specific styles that override or extend main styles */
+
+/* Dashboard content specific styles */
+#dashboard-content {
+    animation: fadeIn 0.5s;
+}
+
+/* Add any dashboard-specific styles here */

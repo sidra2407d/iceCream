@@ -1,0 +1,148 @@
+﻿@model icecream.Models.Feedback
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Feedback</h4>
+<hr />
+@using (Html.BeginForm("Create", "Feedback", FormMethod.Post, new { id = "feedbackForm" }))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group floating-label">
+                <input type="text" name="Name" class="form-control" required />
+                <label for="Name">Full Name</label>
+                <div class="input-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group floating-label">
+                <input type="email" name="Email" class="form-control" required />
+                <label for="Email">Email Address</label>
+                <div class="input-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group floating-label">
+        <input type="text" name="Subject" class="form-control" required />
+        <label for="Subject">Feedback Subject</label>
+        <div class="input-icon">
+            <i class="fas fa-tag"></i>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">What best describes your feedback?</label>
+        <div class="feedback-categories">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="FeedbackType" value="suggestion" checked />
+                <label class="form-check-label">
+                    <i class="fas fa-lightbulb me-1"></i> Suggestion
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="FeedbackType" value="complaint" />
+                <label class="form-check-label">
+                    <i class="fas fa-exclamation-circle me-1"></i> Issue/Complaint
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="FeedbackType" value="praise" />
+                <label class="form-check-label">
+                    <i class="fas fa-heart me-1"></i> Praise
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="FeedbackType" value="other" />
+                <label class="form-check-label">
+                    <i class="fas fa-ellipsis-h me-1"></i> Other
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Overall Rating</label>
+        <div class="star-rating">
+            <input type="radio" id="star5" name="Rating" value="5">
+            <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star4" name="Rating" value="4">
+            <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star3" name="Rating" value="3">
+            <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star2" name="Rating" value="2">
+            <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+            <input type="radio" id="star1" name="Rating" value="1">
+            <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+        </div>
+    </div>
+
+    <div class="form-group floating-label">
+        <textarea name="Message" class="form-control" rows="5" required></textarea>
+        <label for="Message">Your Feedback Message</label>
+        <div class="input-icon">
+            <i class="fas fa-comment"></i>
+        </div>
+        <div class="char-count">
+            <span id="charCount">0</span>/500 characters
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">What did you try? (Select all that apply)</label>
+        <div class="flavor-checkboxes">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Flavors" value="chocolate">
+                <label class="form-check-label"><i class="fas fa-cookie-bite me-1"></i> Chocolate Dream</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Flavors" value="strawberry">
+                <label class="form-check-label"><i class="fas fa-strawberry me-1"></i> Strawberry Bliss</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Flavors" value="vanilla">
+                <label class="form-check-label"><i class="fas fa-ice-cream me-1"></i> Vanilla Supreme</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Flavors" value="mint">
+                <label class="form-check-label"><i class="fas fa-leaf me-1"></i> Mint Chocolate Chip</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="Flavors" value="caramel">
+                <label class="form-check-label"><i class="fas fa-candy-cane me-1"></i> Caramel Swirl</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-check mb-4">
+        <input type="checkbox" class="form-check-input" name="SubscribeNews" checked>
+        <label class="form-check-label">Subscribe to our newsletter for updates</label>
+    </div>
+
+    <div class="form-check mb-4">
+        <input type="checkbox" class="form-check-input" name="ContactBack">
+        <label class="form-check-label">You may contact me about this feedback</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 feedback-btn">
+        <span class="btn-text">Submit Feedback</span>
+        <div class="btn-loader d-none">
+            <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </button>
+
+    <div class="text-center mt-4">
+        <p class="small text-muted mb-0">Your feedback helps us improve our products and services. Thank you!</p>
+    </div>
+}

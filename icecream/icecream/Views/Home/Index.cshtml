@@ -1,0 +1,450 @@
+﻿@{
+    ViewData["Title"] = "index Page";
+}
+
+
+<section class="hero-section" id="home">
+    <div class="strawberries-bg"></div>
+    <div class="left-circle"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Creamy Bar</h1>
+                    <h2 class="hero-subtitle">Enjoy Your <span class="logo-font" style="color: var(--secondary);">Creamy Bite</span></h2>
+                    <p class="lead mb-4">Indulge in our handcrafted, artisanal ice creams made with the finest natural ingredients and a whole lot of love.</p>
+
+                    <div class="flavor-text" id="current-flavor">
+                        Today's Special: <span id="flavor-name">Chocolate Dream</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="#" class="btn btn-primary">
+                            <i class="fas fa-ice-cream me-2"></i> Try It Now
+                        </a>
+                        <a href="#flavors" class="btn btn-secondary">
+                            <i class="fas fa-list me-2"></i> All Flavors
+                        </a>
+                    </div>
+
+                    <div class="flavor-indicators" id="flavor-indicators">
+                        <!-- Flavor indicators will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="flavor-circle" data-aos="fade-left" data-aos-delay="300">
+                    <div class="circle-decoration"></div>
+
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Ice Cream"
+                         class="flavor-image"
+                         id="main-flavor-image">
+
+                    <div class="flavor-dots">
+                        <div class="flavor-dot flavor-dot-1" data-flavor="chocolate">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-2" data-flavor="strawberry">
+                            <i class="fas fa-strawberry"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-3" data-flavor="vanilla">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-4" data-flavor="blueberry">
+                            <i class="fas fa-blender"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-5" data-flavor="mint">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-6" data-flavor="caramel">
+                            <i class="fas fa-candy-cane"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<main>
+    <!-- About Us Section -->
+    <section class="about-section" id="about" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="mb-4">Everything Is Better With Ice Cream.</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages.</p>
+                    <a href="#" class="btn btn-primary mt-3">Read More</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ice Cream Making" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flavors Section -->
+    <section id="flavors" class="py-5" style="background-color: #f9f9f9;" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Our Flavors</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flavor-card">
+                        <img src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="flavor-img" alt="Blue Moon">
+                        <div class="p-4">
+                            <h4>Blue Moon</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <div class="flavor-tags">
+                                <span class="flavor-tag">Creamy</span>
+                                <span class="flavor-tag">Fruity</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flavor-card">
+                        <img src="https://images.unsplash.com/photo-1517099772234-2ed6a1dfc6c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="flavor-img" alt="Stracciatella">
+                        <div class="p-4">
+                            <h4>Stracciatella</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <div class="flavor-tags">
+                                <span class="flavor-tag">Chocolate</span>
+                                <span class="flavor-tag">Classic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flavor-card">
+                        <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="flavor-img" alt="Fresh Vanilla">
+                        <div class="p-4">
+                            <h4>Fresh Vanilla</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                            <div class="flavor-tags">
+                                <span class="flavor-tag">Classic</span>
+                                <span class="flavor-tag">Creamy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="text-center mb-5">Meet the talented ice cream makers behind Creamy Bar's delicious creations.</p>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="team-img" alt="Team Member">
+                        <h5>Sarah Johnson</h5>
+                        <p class="text-muted">Head Ice Cream Chef</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" class="team-img" alt="Team Member">
+                        <h5>Michael Chen</h5>
+                        <p class="text-muted">Flavor Developer</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/women/67.jpg" class="team-img" alt="Team Member">
+                        <h5>Emma Rodriguez</h5>
+                        <p class="text-muted">Pastry Specialist</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-card">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="team-img" alt="Team Member">
+                        <h5>David Wilson</h5>
+                        <p class="text-muted">Operations Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5" style="background-color: #f9f9f9;" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <p class="text-center mb-5">A visual journey through our delicious creations and happy moments.</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="https://images.unsplash.com/photo-1536599424071-0b215a388ba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="gallery-img" alt="Ice Cream Gallery">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="gallery-img" alt="Ice Cream Gallery">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="gallery-img" alt="Ice Cream Gallery">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="gallery-img" alt="Ice Cream Gallery">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://images.unsplash.com/photo-1570196917203-59f2c611a5b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="gallery-img" alt="Ice Cream Gallery">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="gallery-img" alt="Ice Cream Gallery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section id="coming-soon" class="py-5 coming-soon" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Coming Soon</h2>
+            <p class="lead mb-4">We're working on some exciting new flavors! Stay tuned for our upcoming launch.</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <h4 class="mb-3">New Flavors Preview</h4>
+                <div>
+                    <span class="flavor-tag">Mango Passionfruit Swirl</span>
+                    <span class="flavor-tag">Salted Caramel Brownie</span>
+                    <span class="flavor-tag">Matcha Green Tea</span>
+                    <span class="flavor-tag">Cookie Monster</span>
+                    <span class="flavor-tag">Pistachio Dream</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-5" style="background-color: #f9f9f9;" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            <span>What are your ingredients?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use only the highest quality, all-natural ingredients. Our dairy comes from local farms, and we never use artificial colors or flavors.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer dairy-free options?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We have a rotating selection of delicious dairy-free flavors made with coconut milk, almond milk, or oat milk.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I order online for pickup?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! You can place orders through our website or mobile app for convenient pickup at any of our locations.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you cater events?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer catering services for all types of events. Contact us for more information about our catering packages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plan Section -->
+    <section id="pricing" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Pricing Plans</h2>
+            <p class="text-center mb-5">Choose the perfect plan for your ice cream needs</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="mb-0">Single Scoop</h3>
+                            <div class="display-4 mt-3">$4.99</div>
+                            <p>Perfect for a quick treat</p>
+                        </div>
+                        <div class="p-4">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> One regular scoop</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Choice of cone or cup</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> One topping included</li>
+                                <li class="mb-2"><i class="fas fa-times text-muted me-2"></i> Waffle cone upgrade</li>
+                                <li class="mb-2"><i class="fas fa-times text-muted me-2"></i> Extra toppings</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary w-100">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header" style="background: linear-gradient(to right, var(--secondary), var(--accent));">
+                            <h3 class="mb-0">Double Delight</h3>
+                            <div class="display-4 mt-3">$7.99</div>
+                            <p>Most Popular</p>
+                        </div>
+                        <div class="p-4">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Two regular scoops</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Choice of cone or cup</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Two toppings included</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Waffle cone upgrade</li>
+                                <li class="mb-2"><i class="fas fa-times text-muted me-2"></i> Extra toppings</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary w-100">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="mb-0">Sundae Special</h3>
+                            <div class="display-4 mt-3">$12.99</div>
+                            <p>The ultimate experience</p>
+                        </div>
+                        <div class="p-4">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Three regular scoops</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Premium glass serving</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Four toppings included</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Whipped cream & cherry</li>
+                                <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Choice of sauce</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary w-100">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-5" style="background-color: #f9f9f9;" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">From Our Blog</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="blog-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="blog-img" alt="Blog Post">
+                            <span class="category-badge">Recipes</span>
+                        </div>
+                        <div class="blog-content">
+                            <h5>How to Make Perfect Homemade Ice Cream</h5>
+                            <p class="text-muted">Learn our secrets for creating creamy, delicious ice cream at home with simple ingredients.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="blog-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="blog-img" alt="Blog Post">
+                            <span class="category-badge">News</span>
+                        </div>
+                        <div class="blog-content">
+                            <h5>New Summer Flavors Launching Next Week</h5>
+                            <p class="text-muted">Get a sneak peek at our exciting new summer flavors that will be available starting next Monday.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="blog-card">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" class="blog-img" alt="Blog Post">
+                            <span class="category-badge">Health</span>
+                        </div>
+                        <div class="blog-content">
+                            <h5>Ice Cream and Nutrition: What You Need to Know</h5>
+                            <p class="text-muted">Discover how to enjoy ice cream as part of a balanced diet and the nutritional benefits of our ingredients.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div class="contact-form">
+                        <h4 class="mb-4">Send us a message</h4>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <h4 class="mb-4">Get in Touch</h4>
+                        <div class="footer-contact mb-4">
+                            <p><i class="fas fa-phone"></i> +135 458 652 255</p>
+                            <p><i class="fas fa-envelope"></i> info@example.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> 123 Ice Cream Street, Sweet City, SC 12345</p>
+                        </div>
+                        <h5 class="mt-4 mb-3">Opening Hours</h5>
+                        <p>Monday - Friday: 10:00 AM - 10:00 PM</p>
+                        <p>Saturday - Sunday: 9:00 AM - 11:00 PM</p>
+                        <div class="social-icons mt-4">
+                            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

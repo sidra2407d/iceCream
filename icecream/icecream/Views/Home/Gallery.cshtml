@@ -1,0 +1,204 @@
+﻿
+@{
+    ViewData["Title"] = "Gallery";
+}
+
+<section class="hero-section" id="home">
+    <div class="strawberries-bg"></div>
+    <div class="left-circle"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Sweet Memories</h1>
+                    <h2 class="hero-subtitle">A Visual Journey Through Our <span class="logo-font" style="color: var(--secondary);">Ice Cream World</span></h2>
+                    <p class="lead mb-4">Explore our gallery of mouthwatering creations, behind-the-scenes moments, and the joy we've shared with our community for over three decades.</p>
+
+                    <div class="flavor-text" id="current-flavor">
+                        Gallery Category: <span id="flavor-name">All Photos</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="#photo-gallery" class="btn btn-primary">
+                            <i class="fas fa-images me-2"></i> View Photos
+                        </a>
+                        <a href="#video-gallery" class="btn btn-secondary">
+                            <i class="fas fa-play-circle me-2"></i> Watch Videos
+                        </a>
+                    </div>
+
+                    <div class="flavor-indicators" id="flavor-indicators">
+                        <!-- Flavor indicators will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="flavor-circle" data-aos="fade-left" data-aos-delay="300">
+                    <div class="circle-decoration"></div>
+
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Gallery Preview"
+                         class="flavor-image"
+                         id="main-flavor-image">
+
+                    <div class="flavor-dots">
+                        <div class="flavor-dot flavor-dot-1" data-flavor="all">
+                            <i class="fas fa-images"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-2" data-flavor="flavors">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-3" data-flavor="shop">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-4" data-flavor="team">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-5" data-flavor="events">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-6" data-flavor="customers">
+                            <i class="fas fa-smile"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Photo Gallery Section -->
+<section class="gallery-section" id="photo-gallery">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Our Photo Gallery</h2>
+        <p class="text-center mb-5" data-aos="fade-up">Browse through our collection of sweet moments captured over the years. Click on any image to view it in full size.</p>
+
+        <!-- Gallery Filter -->
+        <div class="gallery-filter" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="flavors">Flavors</button>
+            <button class="filter-btn" data-filter="shop">Our Shop</button>
+            <button class="filter-btn" data-filter="team">Our Team</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+            <button class="filter-btn" data-filter="customers">Happy Customers</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-container">
+            <!-- Gallery items will be populated by JavaScript -->
+        </div>
+    </div>
+</section>
+
+<!-- Video Gallery Section -->
+<section class="video-section" id="video-gallery" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Behind The Scenes</h2>
+        <p class="text-center mb-5">Watch how we create our delicious ice cream, from sourcing ingredients to serving smiles.</p>
+
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="video-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="video1">
+                    <img src="https://images.unsplash.com/photo-1570196917203-59f2c611a5b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Ice Cream Making Process" class="video-thumbnail">
+                    <div class="video-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="gallery-overlay" style="transform: translateY(0);">
+                        <div class="gallery-category">Process</div>
+                        <h5 class="gallery-title">The Art of Ice Cream Making</h5>
+                        <p>Watch how we craft our signature flavors</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="video-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="video2">
+                    <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Farm Ingredients" class="video-thumbnail">
+                    <div class="video-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="gallery-overlay" style="transform: translateY(0);">
+                        <div class="gallery-category">Ingredients</div>
+                        <h5 class="gallery-title">Farm to Cone Journey</h5>
+                        <p>See where our fresh ingredients come from</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="video-card" data-bs-toggle="modal" data-bs-target="#videoModal" data-video-id="video3">
+                    <img src="https://images.unsplash.com/photo-1536599424071-0b215a388ba7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Community Event" class="video-thumbnail">
+                    <div class="video-play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="gallery-overlay" style="transform: translateY(0);">
+                        <div class="gallery-category">Community</div>
+                        <h5 class="gallery-title">Annual Ice Cream Festival</h5>
+                        <p>Celebrating with our community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Instagram Feed -->
+<section class="instagram-feed" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Follow Us on Instagram</h2>
+        <p class="text-center mb-5">Join our sweet community on Instagram and share your #CreamyBarMoments</p>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="instagram-card">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                         alt="Instagram Post 1">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="instagram-card">
+                    <img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w-800&q=80"
+                         alt="Instagram Post 2">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="instagram-card">
+                    <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                         alt="Instagram Post 3">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="instagram-card">
+                    <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                         alt="Instagram Post 4">
+                    <div class="instagram-overlay">
+                        <i class="fab fa-instagram instagram-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="https://instagram.com" target="_blank" class="btn btn-primary">
+                <i class="fab fa-instagram me-2"></i> Follow CreamyBar
+            </a>
+        </div>
+    </div>
+</section>
+

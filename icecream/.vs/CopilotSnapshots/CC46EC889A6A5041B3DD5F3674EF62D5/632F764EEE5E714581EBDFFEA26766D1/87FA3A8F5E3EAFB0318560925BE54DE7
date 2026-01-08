@@ -1,0 +1,193 @@
+﻿using icecream.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+
+namespace icecream.Controllers
+{
+    public class RecipesController : Controller
+    {
+        private readonly IceCreamParlourDbContext _context;
+
+        public RecipesController(IceCreamParlourDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Recipes
+        public async Task<IActionResult> Index()
+        {
+            var iceCreamParlourDbContext = _context.Recipes.Include(r => r.AddedByAdminNavigation);
+            return View(await iceCreamParlourDbContext.ToListAsync());
+        }
+
+        // GET: Recipes/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var recipe = await _context.Recipes
+                .Include(r => r.AddedByAdminNavigation)
+                .FirstOrDefaultAsync(m => m.RecipeId == id);
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            return View(recipe);
+        }
+
+        // GET: Recipes/Create
+        public IActionResult Create()
+        {
+            ViewData["AddedByAdmin"] = new SelectList(_context.Admins, "AdminId", "AdminId");
+            // Return an empty model so the view can safely access Model properties (e.g. ImagePath)
+            return View(new Recipe());
+        }
+
+        // POST: Recipes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("RecipeId,FlavorName,Ingredients,RecipeProcedure,ImagePath,AddedByAdmin,CreatedAt")] Recipe recipe, IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                if (file != null && file.Length > 0)
+                {
+                    var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    if (!Directory.Exists(uploads))
+                        Directory.CreateDirectory(uploads);
+
+                    var uniqueName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    var filePath = Path.Combine(uploads, uniqueName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    recipe.ImagePath = "/uploads/" + uniqueName;
+                }
+
+                _context.Add(recipe);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["AddedByAdmin"] = new SelectList(_context.Admins, "AdminId", "AdminId", recipe.AddedByAdmin);
+            return View(recipe);
+        }
+
+        // GET: Recipes/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var recipe = await _context.Recipes.FindAsync(id);
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+            ViewData["AddedByAdmin"] = new SelectList(_context.Admins, "AdminId", "AdminId", recipe.AddedByAdmin);
+            return View(recipe);
+        }
+
+        // POST: Recipes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("RecipeId,FlavorName,Ingredients,RecipeProcedure,ImagePath,AddedByAdmin,CreatedAt")] Recipe recipe, IFormFile file)
+        {
+            if (id != recipe.RecipeId)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                if (file != null && file.Length > 0)
+                {
+                    var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    if (!Directory.Exists(uploads))
+                        Directory.CreateDirectory(uploads);
+
+                    var uniqueName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    var filePath = Path.Combine(uploads, uniqueName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    recipe.ImagePath = "/uploads/" + uniqueName;
+                }
+                try
+                {
+                    _context.Update(recipe); // ✅ Fix: update instead of add
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Recipes.Any(e => e.RecipeId == recipe.RecipeId))
+                        return NotFound();
+                    else
+                        throw;
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["AddedByAdmin"] = new SelectList(_context.Admins, "AdminId", "AdminId", recipe.AddedByAdmin);
+            return View(recipe);
+        }
+
+        // GET: Recipes/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var recipe = await _context.Recipes
+                .Include(r => r.AddedByAdminNavigation)
+                .FirstOrDefaultAsync(m => m.RecipeId == id);
+            if (recipe == null)
+            {
+                return NotFound();
+            }
+
+            return View(recipe);
+        }
+
+        // POST: Recipes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var recipe = await _context.Recipes.FindAsync(id);
+            if (recipe != null)
+            {
+                _context.Recipes.Remove(recipe);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool RecipeExists(int id)
+        {
+            return _context.Recipes.Any(e => e.RecipeId == id);
+        }
+    }
+}

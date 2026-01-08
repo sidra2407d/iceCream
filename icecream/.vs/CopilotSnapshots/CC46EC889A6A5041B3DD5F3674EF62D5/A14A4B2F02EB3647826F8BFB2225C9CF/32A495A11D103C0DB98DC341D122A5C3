@@ -1,0 +1,153 @@
+﻿@model icecream.Models.Recipe
+
+@{
+ ViewData["Title"] = "Create Recipe";
+ Layout = "~/Views/Shared/_DashLayout.cshtml";
+}
+
+<style>
+/* Professional recipe create card */
+.recipe-card {
+ max-width:900px;
+ margin:2rem auto;
+ background: #fff;
+ border-radius:14px;
+ overflow: hidden;
+ box-shadow: 10px 30px rgba(34,40,49,0.06);
+ border:1px solid rgba(0,0,0,0.04);
+}
+.recipe-card .header {
+ padding:20px 24px;
+ background: linear-gradient(90deg,#ff9a9e,#ffd194);
+ color: #201c1f;
+}
+.recipe-card .header h3 { margin:0; font-weight:700; }
+.recipe-card .header p { margin:6px 0; color: rgba(0,0,0,0.6); }
+.recipe-body { padding:24px; }
+.form-grid { display: grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.form-full { grid-column:1 / -1; }
+.form-floating > .form-control, .form-floating > .form-select { height: calc(3.6rem +2px); padding:1rem 0.75rem; border-radius:10px; }
+textarea.form-control { min-height:140px; padding-top:1rem; }
+.image-uploader { display:flex; gap:1rem; align-items:flex-start; }
+.image-drop { width:220px; height:140px; border-radius:8px; border:1px dashed rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center; background:#fafafa; }
+.image-drop img { max-width:100%; max-height:100%; border-radius:6px; }
+.file-note { color:#6c757d; font-size:0.9rem; }
+.actions { display:flex; justify-content:flex-end; gap:.75rem; margin-top:1rem; }
+.btn-cancel { background:transparent; border:1px solid rgba(0,0,0,0.06); padding:.55rem .9rem; border-radius:.5rem; }
+.btn-primary { background:linear-gradient(90deg,#ff6a88,#ff9076); border:none; color:#fff; padding:.55rem .95rem; border-radius:.5rem; }
+
+/* responsive */
+@media (max-width:767.98px) {
+ .form-grid { grid-template-columns:1fr; }
+ .image-drop { width:100%; height:160px; }
+ .actions { flex-direction: column-reverse; }
+}
+</style>
+
+<div class="recipe-card">
+ <div class="header">
+ <h3>Create New Recipe</h3>
+ <p class="small">Add a new flavor — include ingredients, procedure and an optional image.</p>
+ </div>
+
+ <div class="recipe-body">
+ <form asp-action="Create" enctype="multipart/form-data" novalidate class="needs-validation">
+ <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+ <div class="form-grid">
+ <div class="form-floating form-full">
+ <input asp-for="FlavorName" class="form-control" placeholder="Flavor name" />
+ <label asp-for="FlavorName">Flavor name *</label>
+ <span asp-validation-for="FlavorName" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating form-full">
+ <textarea asp-for="Ingredients" class="form-control" placeholder="Ingredients (one per line)"></textarea>
+ <label asp-for="Ingredients">Ingredients</label>
+ <span asp-validation-for="Ingredients" class="text-danger small"></span>
+ </div>
+
+ <div class="form-floating form-full">
+ <textarea asp-for="RecipeProcedure" class="form-control" placeholder="Preparation steps"></textarea>
+ <label asp-for="RecipeProcedure">Preparation / Procedure</label>
+ <span asp-validation-for="RecipeProcedure" class="text-danger small"></span>
+ </div>
+
+ <div class="form-full image-uploader">
+ <div style="flex:1">
+ <label class="form-label">Featured image</label>
+ <div class="mb-2">
+ <input type="file" name="file" asp-for="ImagePath" accept="image/*" class="form-control" id="imageInput" />
+ </div>
+ <div class="file-note">Supported: JPG, PNG, GIF, WEBP. Recommended max size:2MB.</div>
+ <span asp-validation-for="ImagePath" class="text-danger small"></span>
+ </div>
+
+ <div class="image-drop" id="imagePreviewContainer">
+ <img id="imagePreview" src='@Url.Content(Model?.ImagePath ?? "~/images/placeholder-image.png")' alt="Preview" />
+ </div>
+ </div>
+
+ <div>
+ <div class="form-floating">
+ <select asp-for="AddedByAdmin" class="form-select" asp-items="ViewBag.AddedByAdmin">
+ <option value="">Select Admin</option>
+ </select>
+ <label asp-for="AddedByAdmin">Added by (Admin)</label>
+ <span asp-validation-for="AddedByAdmin" class="text-danger small"></span>
+ </div>
+ </div>
+
+ <div>
+ <div class="form-floating">
+ <input asp-for="CreatedAt" type="datetime-local" class="form-control" />
+ <label asp-for="CreatedAt">Created at</label>
+ <span asp-validation-for="CreatedAt" class="text-danger small"></span>
+ </div>
+ </div>
+
+ </div>
+
+ <div class="actions">
+ <a asp-action="Index" class="btn btn-cancel">Cancel</a>
+ <button type="submit" class="btn btn-primary">Create Recipe</button>
+ </div>
+ </form>
+ </div>
+</div>
+
+@section Scripts {
+<script>
+// client-side enhancements: preview and simple validations
+(function(){
+ var input = document.getElementById('imageInput');
+ var preview = document.getElementById('imagePreview');
+ var previewContainer = document.getElementById('imagePreviewContainer');
+ if(input){
+ input.addEventListener('change', function(e){
+ var file = e.target.files && e.target.files[0];
+ if(!file){ preview.src = '/images/placeholder-image.png'; return; }
+ var allowed = ['image/jpeg','image/png','image/gif','image/webp'];
+ if(allowed.indexOf(file.type) === -1){ alert('Unsupported image format.'); input.value=''; return; }
+ if(file.size >2 *1024 *1024){ alert('Image is larger than2MB.'); input.value=''; return; }
+ var reader = new FileReader();
+ reader.onload = function(evt){ preview.src = evt.target.result; };
+ reader.readAsDataURL(file);
+ });
+ }
+
+ // basic bootstrap-style client validation
+ var forms = document.querySelectorAll('.needs-validation');
+ Array.prototype.slice.call(forms).forEach(function(form){
+ form.addEventListener('submit', function(event){
+ if(!form.checkValidity()){
+ event.preventDefault();
+ event.stopPropagation();
+ }
+ form.classList.add('was-validated');
+ }, false);
+ });
+})();
+</script>
+}
+

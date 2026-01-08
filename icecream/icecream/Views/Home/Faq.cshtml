@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewData["Title"] = "Faq";
+}
+
+<section class="hero-section" id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Frequently Asked Questions</h1>
+                    <h2 class="hero-subtitle">Everything You Need to Know About <span class="logo-font" style="color: var(--secondary);">Creamy Bar</span></h2>
+                    <p class="lead mb-4">Find answers to our most commonly asked questions about our ice cream, ingredients, delivery, and more.</p>
+
+                    <div class="mb-4">
+                        <a href="#faq-section" class="btn btn-primary">
+                            <i class="fas fa-question-circle me-2"></i> Browse Questions
+                        </a>
+                        <a href="#contact-cta" class="btn btn-secondary">
+                            <i class="fas fa-headset me-2"></i> Still Have Questions?
+                        </a>
+                    </div>
+
+                    <p class="small"><i class="fas fa-lightbulb me-2" style="color: var(--secondary);"></i> Use the search bar below to quickly find answers</p>
+
+                    <div class="input-group mt-3">
+                        <input type="text" class="form-control" placeholder="Search for answers..." id="faq-search">
+                        <button class="btn btn-primary" type="button" id="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="icecream-cone" data-aos="fade-left" data-aos-delay="300">
+                    <div class="cone"></div>
+                    <div class="scoop scoop-1"></div>
+                    <div class="scoop scoop-2"></div>
+                    <div class="scoop scoop-3"></div>
+                    <div class="drip drip-1"></div>
+                    <div class="drip drip-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section" id="faq-section">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Find Answers to Your Questions</h2>
+
+        <!-- FAQ Categories -->
+        <div class="faq-categories" data-aos="fade-up">
+            <div class="text-center">
+                <button class="btn category-btn active" data-category="all">
+                    <i class="fas fa-star me-2"></i> All Questions
+                </button>
+                <button class="btn category-btn" data-category="product">
+                    <i class="fas fa-ice-cream me-2"></i> Our Products
+                </button>
+                <button class="btn category-btn" data-category="ordering">
+                    <i class="fas fa-shopping-cart me-2"></i> Ordering
+                </button>
+                <button class="btn category-btn" data-category="delivery">
+                    <i class="fas fa-shipping-fast me-2"></i> Delivery
+                </button>
+                <button class="btn category-btn" data-category="dietary">
+                    <i class="fas fa-heart me-2"></i> Dietary Info
+                </button>
+                <button class="btn category-btn" data-category="company">
+                    <i class="fas fa-store me-2"></i> Our Company
+                </button>
+            </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="faq-accordion" id="faq-accordion">
+            <!-- FAQ items will be populated by JavaScript -->
+        </div>
+
+        <!-- FAQ Stats -->
+        <div class="faq-stats" data-aos="fade-up">
+            <div class="row text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-text">Customer Satisfaction</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">35+</div>
+                        <div class="stat-text">Years of Experience</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-text">Flavors Created</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-text">Response Time</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta" id="contact-cta" data-aos="fade-up">
+            <h3 class="logo-font">Still Have Questions?</h3>
+            <p>We're here to help! Our team is available 7 days a week to answer any questions you might have about our ice cream, orders, or anything else.</p>
+            <div class="mt-4">
+                <a href="contact.html" class="btn btn-light me-3">
+                    <i class="fas fa-envelope me-2"></i> Contact Us
+                </a>
+                <a href="tel:+11234567890" class="btn btn-light">
+                    <i class="fas fa-phone me-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+

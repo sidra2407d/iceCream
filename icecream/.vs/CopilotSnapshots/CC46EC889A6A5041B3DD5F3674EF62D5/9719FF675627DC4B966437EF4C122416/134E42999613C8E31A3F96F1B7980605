@@ -1,0 +1,197 @@
+﻿@{
+ ViewData["Title"] = "Dashboard";
+ Layout = "~/Views/Shared/_DashLayout.cshtml";
+}
+
+<style>
+/* Dashboard professional style */
+.dashboard-container { padding:2rem1rem; }
+.header-row { display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:1.25rem; }
+.header-left h1 { margin:0; font-size:1.6rem; font-weight:700; }
+.header-left p { margin:0; color:rgba(0,0,0,0.55); }
+.quick-actions { display:flex; gap:.5rem; }
+.card-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:1.5rem; }
+.card { background:#fff; border-radius:.75rem; padding:1rem; box-shadow:06px18px rgba(30,30,40,0.06); border:1px solid rgba(0,0,0,0.04); }
+.card .meta { color:#6b6b6b; font-size:.85rem; }
+.card .value { font-size:1.35rem; font-weight:700; margin-top:.4rem; }
+.card .change { font-size:.85rem; margin-top:.35rem; }
+.change.positive { color: #2f9e44; }
+.change.negative { color: #e03131; }
+
+.charts-row { display:grid; grid-template-columns:2fr1fr; gap:1rem; margin-bottom:1.5rem; }
+.chart-card { height:100%; display:flex; flex-direction:column; }
+.chart-canvas { background:linear-gradient(180deg,#fff,#fbfbfd); border-radius:.5rem; padding:1rem; height:100%; }
+.summary-list { display:flex; flex-direction:column; gap:.75rem; }
+.summary-item { display:flex; align-items:center; justify-content:space-between; padding:.5rem; background:#fff; border-radius:.5rem; border:1px solid rgba(0,0,0,0.03); }
+
+.tables-row { display:grid; grid-template-columns:2fr1fr; gap:1rem; }
+.table-card { background:#fff; border-radius:.75rem; padding:1rem; box-shadow:06px18px rgba(30,30,40,0.04); }
+.table-responsive { overflow:auto; }
+.table-responsive table { width:100%; border-collapse:collapse; font-size:.95rem; }
+.table-responsive th, .table-responsive td { padding:.6rem .75rem; text-align:left; border-bottom:1px solid rgba(0,0,0,0.05); }
+.status { padding:.25rem .5rem; border-radius:.5rem; font-size:.8rem; }
+.status.pending { background:#fff6e6; color:#f08a24; }
+.status.processing { background:#eef9ff; color:#0d6efd; }
+.status.completed { background:#eefbe9; color:#2f9e44; }
+
+.footer-small { margin-top:1.25rem; color:rgba(0,0,0,0.5); font-size:.9rem; }
+
+/* Responsive */
+@@media (max-width:991.98px) {
+ .card-grid { grid-template-columns:repeat(2,1fr); }
+ .charts-row { grid-template-columns:1fr; }
+ .tables-row { grid-template-columns:1fr; }
+}
+@@media (max-width:575.98px) {
+ .card-grid { grid-template-columns:1fr; }
+}
+</style>
+
+<main class="dashboard-container">
+ <div class="header-row">
+ <div class="header-left">
+ <h1>CreamyBar — Admin Dashboard</h1>
+ <p class="small">Overview of platform activity and key metrics</p>
+ </div>
+ <div class="quick-actions">
+ <a class="btn btn-outline-secondary" href="#"><i class="fas fa-download"></i> Export</a>
+ <a class="btn btn-primary" href="#"><i class="fas fa-plus"></i> New Recipe</a>
+ </div>
+ </div>
+
+ <!-- Key metric cards -->
+ <div class="card-grid">
+ <div class="card">
+ <div class="meta">Total Users</div>
+ <div class="value">1,248</div>
+ <div class="change positive"><i class="fas fa-arrow-up"></i>12% vs last month</div>
+ </div>
+
+ <div class="card">
+ <div class="meta">Orders (Month)</div>
+ <div class="value">342</div>
+ <div class="change positive"><i class="fas fa-arrow-up"></i>8% vs last month</div>
+ </div>
+
+ <div class="card">
+ <div class="meta">Total Recipes</div>
+ <div class="value">89</div>
+ <div class="change">5 new this week</div>
+ </div>
+
+ <div class="card">
+ <div class="meta">New Feedback</div>
+ <div class="value">47</div>
+ <div class="change negative"><i class="fas fa-arrow-down"></i>3% vs last week</div>
+ </div>
+ </div>
+
+ <!-- Charts area -->
+ <div class="charts-row">
+ <div class="chart-card card">
+ <div class="meta">Monthly Orders Overview</div>
+ <div class="chart-canvas mt-2">
+ <canvas id="ordersChart" style="width:100%;height:220px;"></canvas>
+ </div>
+ </div>
+
+ <div class="card summary-list">
+ <div class="meta">Quick Summary</div>
+ <div class="summary-item"><div>Pending Orders</div><div><strong>23</strong></div></div>
+ <div class="summary-item"><div>Orders in Transit</div><div><strong>17</strong></div></div>
+ <div class="summary-item"><div>Completed Orders</div><div><strong>302</strong></div></div>
+ <div class="summary-item"><div>Avg. Rating</div><div><strong>4.7/5</strong></div></div>
+ <div class="summary-item"><div>Monthly Revenue</div><div><strong>$8,240</strong></div></div>
+ </div>
+ </div>
+
+ <!-- Tables: recent orders + recent users -->
+ <div class="tables-row">
+ <div class="table-card">
+ <div class="d-flex justify-content-between align-items-center mb-2">
+ <h3 style="margin:0;font-size:1.05rem;">Recent Orders</h3>
+ <a class="small" href="#">View All</a>
+ </div>
+ <div class="table-responsive">
+ <table>
+ <thead>
+ <tr>
+ <th>Order ID</th>
+ <th>Customer</th>
+ <th>Book</th>
+ <th>Status</th>
+ <th>Actions</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>#ORD-7842</td>
+ <td>John Smith</td>
+ <td>Italian Cuisine</td>
+ <td><span class="status pending">Pending</span></td>
+ <td><a class="btn btn-sm btn-outline-primary" href="#">View</a></td>
+ </tr>
+ <tr>
+ <td>#ORD-7841</td>
+ <td>Emma Johnson</td>
+ <td>Asian Street Food</td>
+ <td><span class="status processing">Processing</span></td>
+ <td><a class="btn btn-sm btn-outline-primary" href="#">View</a></td>
+ </tr>
+ <tr>
+ <td>#ORD-7840</td>
+ <td>Michael Brown</td>
+ <td>Vegan Delights</td>
+ <td><span class="status completed">Sent</span></td>
+ <td><a class="btn btn-sm btn-outline-primary" href="#">View</a></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <div class="table-card">
+ <div class="d-flex justify-content-between align-items-center mb-2">
+ <h3 style="margin:0;font-size:1.05rem;">Recent Users</h3>
+ <a class="small" href="#">View All</a>
+ </div>
+ <div class="summary-list">
+ <div class="summary-item"><div><strong>Alex Turner</strong><div class="small text-muted">Joined: Today</div></div><div>USR-542</div></div>
+ <div class="summary-item"><div><strong>Sophie Martinez</strong><div class="small text-muted">Joined: Yesterday</div></div><div>USR-541</div></div>
+ <div class="summary-item"><div><strong>David Lee</strong><div class="small text-muted">Joined:2 days ago</div></div><div>USR-540</div></div>
+ </div>
+ </div>
+ </div>
+
+ <div class="footer-small">Last Login: Today at09:42 AM | Version:2.4.1</div>
+</main>
+
+@section Scripts {
+ <script>
+ // If Chart.js is loaded on the layout, render simple demo charts.
+ (function(){
+ if (typeof Chart === 'undefined') return;
+
+ var ctx = document.getElementById('ordersChart').getContext('2d');
+ new Chart(ctx, {
+ type: 'line',
+ data: {
+ labels: ['Week1', 'Week2', 'Week3', 'Week4'],
+ datasets: [{
+ label: 'Orders',
+ data: [80,120,150,110],
+ fill: true,
+ backgroundColor: 'rgba(99,102,241,0.08)',
+ borderColor: 'rgba(99,102,241,1)',
+ tension:0.3
+ }]
+ },
+ options: {
+ plugins: { legend: { display: false } },
+ scales: { x: { grid: { display: false } }, y: { beginAtZero: true } }
+ }
+ });
+ })();
+ </script>
+}
+

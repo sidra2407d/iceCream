@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>@ViewData["Title"] - CreamyBar Admin</title>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="~/dashboard/css/dashboard.css" asp-append-version="true" />
+ <link rel="stylesheet" href="~/dashboard/css/style.css" asp-append-version="true" />
+
+ <style>
+ /* Sidebar icon enhancements to match the provided screenshot */
+ .sidebar { width:220px; padding:22px; background: linear-gradient(180deg,#2b1b59,#2f2a6b); color:#fff; min-height:100vh; }
+ .logo-container { margin-bottom:18px; }
+ .logo-text { color:#fff; font-family:'Dancing Script', cursive; font-size:1.1rem; margin-left:8px; }
+
+ .nav-links { padding:0; margin:0; list-style:none; }
+ .nav-links li { margin-bottom:10px; }
+ .nav-links a { display:flex; align-items:center; gap:12px; padding:10px12px; color:rgba(255,255,255,0.95); text-decoration:none; border-radius:8px; }
+
+ /* circular icon background */
+ .icon-circle { width:40px; height:40px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:1.05rem; box-shadow:06px18px rgba(0,0,0,0.12); }
+
+ /* label pill for active / hover */
+ .nav-text { font-weight:600; color:rgba(255,255,255,0.9); padding:6px10px; border-radius:6px; transition: all160ms ease; }
+ .nav-links a:hover .nav-text { background: rgba(255,255,255,0.06); color:#fff; }
+
+ /* Active pill style */
+ .nav-links a.active { background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)); }
+ .nav-links a.active .nav-text { background:#1746d5; color:#fff; box-shadow:06px18px rgba(23,70,213,0.18); }
+
+ /* per-item icon gradients */
+ .nav-item-dash .icon-circle { background: linear-gradient(135deg,#ff9a9e,#ff6a88); }
+ .nav-item-users .icon-circle { background: linear-gradient(135deg,#ffd194,#ff9076); }
+ .nav-item-orders .icon-circle { background: linear-gradient(135deg,#8bd3dd,#4fb3c5); }
+ .nav-item-analytics .icon-circle { background: linear-gradient(135deg,#b39df4,#7c5cf6); }
+ .nav-item-settings .icon-circle { background: linear-gradient(135deg,#ffe29f,#ffb86b); }
+ .nav-item-feedback .icon-circle { background: linear-gradient(135deg,#f6c6e7,#f08ad6); }
+ .nav-item-recipes .icon-circle { background: linear-gradient(135deg,#ffd1d9,#ff9fb8); }
+ .nav-item-books .icon-circle { background: linear-gradient(135deg,#ffd89b,#ffb84d); }
+
+ /* smaller screen adjustments */
+ @media (max-width:991.98px) {
+ .sidebar { width:72px; padding:12px; }
+ .nav-text { display:none; }
+ .nav-links a { justify-content:center; padding:12px; }
+ }
+ </style>
+
+ @RenderSection("Styles", required: false)
+</head>
+<body>
+
+ <nav class="sidebar">
+ <div class="logo-container">
+ <h2 style="display:flex; align-items:center; gap:8px;">
+ <div class="icecream-cone" style="width:36px; height:44px;">
+ <div class="scoop"></div>
+ <div class="cone"></div>
+ <div class="cherry"></div>
+ </div>
+ <span class="logo-text">CreamyBar</span>
+ </h2>
+ </div>
+
+ <ul class="nav-links">
+ <li>
+ <a asp-controller="Dashboard" asp-action="Index" class="nav-item-dash active" title="Dashboard" aria-label="Dashboard">
+ <span class="icon-circle"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+ <span class="nav-text">Dashboard</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Users" asp-action="Index" class="nav-item-users" title="Users" aria-label="Users">
+ <span class="icon-circle"><i class="fa-solid fa-user-group" aria-hidden="true"></i></span>
+ <span class="nav-text">Users</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Orders" asp-action="Index" class="nav-item-orders" title="Orders" aria-label="Orders">
+ <span class="icon-circle"><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>
+ <span class="nav-text">Orders</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Analytics" asp-action="Index" class="nav-item-analytics" title="Analytics" aria-label="Analytics">
+ <span class="icon-circle"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></span>
+ <span class="nav-text">Analytics</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Settings" asp-action="Index" class="nav-item-settings" title="Settings" aria-label="Settings">
+ <span class="icon-circle"><i class="fa-solid fa-gear" aria-hidden="true"></i></span>
+ <span class="nav-text">Settings</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Feedbacks" asp-action="Index" class="nav-item-feedback" title="Feedback" aria-label="Feedback">
+ <span class="icon-circle"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
+ <span class="nav-text">Feedback</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Recipes" asp-action="Index" class="nav-item-recipes" title="Recipes" aria-label="Recipes">
+ <span class="icon-circle"><i class="fa-solid fa-ice-cream" aria-hidden="true"></i></span>
+ <span class="nav-text">Recipes</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="RecipeBooks" asp-action="Index" class="nav-item-books" title="Recipe Books" aria-label="Recipe Books">
+ <span class="icon-circle"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+ <span class="nav-text">Recipe Books</span>
+ </a>
+ </li>
+ </ul>
+ </nav>
+
+ <main class="main-content">
+
+ <header class="header">
+ <h1>
+ <div class="icecream-cone" style="width:40px; height:48px; display: inline-block; vertical-align: middle;">
+ <div class="scoop" style="width:32px; height:28px;"></div>
+ <div class="cone" style="width:22px; height:24px;"></div>
+ </div>
+ CreamyBar Admin Dashboard
+ </h1>
+ <div class="admin-info">
+ <div class="admin-avatar">CB</div>
+ <div>
+ <h3>CreamyBar Admin</h3>
+ <p>Super Administrator</p>
+ </div>
+ <button class="logout-btn" title="Logout" aria-label="Logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+ </div>
+ </header>
+
+ <div class="container-fluid">
+ @RenderBody()
+ </div>
+
+ </main>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script src="~/dashboard/js/chart.js" asp-append-version="true"></script>
+ <script src="~/dashboard/js/main.js" asp-append-version="true"></script>
+ <script src="~/dashboard/js/navigation.js" asp-append-version="true"></script>
+
+
+ @RenderSection("Scripts", required: false)
+</body>
+</html>

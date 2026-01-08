@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using icecream.Models;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+
+namespace icecream.Controllers
+{
+    public class RecipeBooksController : Controller
+    {
+        private readonly IceCreamParlourDbContext _context;
+
+        public RecipeBooksController(IceCreamParlourDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: RecipeBooks
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.RecipeBooks.ToListAsync());
+        }
+
+        // GET: RecipeBooks/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+            var recipeBook = await _context.RecipeBooks.FirstOrDefaultAsync(m => m.BookId == id);
+            if (recipeBook == null) return NotFound();
+            return View(recipeBook);
+        }
+
+        // GET: RecipeBooks/Create
+        public IActionResult Create() => View();
+
+        // POST: RecipeBooks/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("BookId,BookName,Description,Price,ImagePath")] RecipeBook recipeBook, IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                if (file != null && file.Length > 0)
+                {
+                    var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    if (!Directory.Exists(uploads)) Directory.CreateDirectory(uploads);
+                    var uniqueName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    var filePath = Path.Combine(uploads, uniqueName);
+                    using (var stream = new FileStream(filePath, FileMode.Create)) await file.CopyToAsync(stream);
+                    recipeBook.ImagePath = "/uploads/" + uniqueName;
+                }
+                _context.Add(recipeBook);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(recipeBook);
+        }
+
+        // GET: RecipeBooks/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+            var recipeBook = await _context.RecipeBooks.FindAsync(id);
+            if (recipeBook == null) return NotFound();
+            return View(recipeBook);
+        }
+
+        // POST: RecipeBooks/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,BookName,Description,Price,ImagePath")] RecipeBook recipeBook, IFormFile file)
+        {
+            if (id != recipeBook.BookId) return NotFound();
+            if (!ModelState.IsValid) return View(recipeBook);
+            var bookToUpdate = await _context.RecipeBooks.FindAsync(id);
+            if (bookToUpdate == null) return NotFound();
+            if (file != null && file.Length > 0)
+            {
+                var uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                if (!Directory.Exists(uploads)) Directory.CreateDirectory(uploads);
+                var uniqueName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                var filePath = Path.Combine(uploads, uniqueName);
+                using (var stream = new FileStream(filePath, FileMode.Create)) await file.CopyToAsync(stream);
+                bookToUpdate.ImagePath = "/uploads/" + uniqueName;
+            }
+            bookToUpdate.BookName = recipeBook.BookName;
+            bookToUpdate.Description = recipeBook.Description;
+            bookToUpdate.Price = recipeBook.Price;
+            try { _context.Update(bookToUpdate); await _context.SaveChangesAsync(); }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.RecipeBooks.Any(e => e.BookId == bookToUpdate.BookId)) return NotFound();
+                else throw;
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: RecipeBooks/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            var recipeBook = await _context.RecipeBooks.FirstOrDefaultAsync(m => m.BookId == id);
+            if (recipeBook == null) return NotFound();
+            return View(recipeBook);
+        }
+
+        // POST: RecipeBooks/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var recipeBook = await _context.RecipeBooks.FindAsync(id);
+            if (recipeBook != null) _context.RecipeBooks.Remove(recipeBook);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool RecipeBookExists(int id) => _context.RecipeBooks.Any(e => e.BookId == id);
+    }
+}

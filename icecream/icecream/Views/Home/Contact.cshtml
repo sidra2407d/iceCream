@@ -1,0 +1,337 @@
+﻿
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<!-- Hero Section with Interactive Flavor Circle - SAME AS INDEX -->
+<section class="hero-section" id="home">
+    <div class="strawberries-bg"></div>
+    <div class="left-circle"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Contact Us</h1>
+                    <h2 class="hero-subtitle">We'd love to hear from you! Reach out with questions, feedback, or just to say hello.</h2>
+                    <p class="lead mb-4">Our team is ready to help you with anything ice cream related!</p>
+
+                    <div class="flavor-text" id="current-flavor">
+                        Today's Special: <span id="flavor-name">Chocolate Dream</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-envelope me-2"></i> Get in Touch
+                        </a>
+                        <a href="#map" class="btn btn-secondary">
+                            <i class="fas fa-map-marker-alt me-2"></i> Find Our Store
+                        </a>
+                    </div>
+
+                    <div class="flavor-indicators" id="flavor-indicators">
+                        <!-- Flavor indicators will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="flavor-circle" data-aos="fade-left" data-aos-delay="300">
+                    <div class="circle-decoration"></div>
+
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Ice Cream"
+                         class="flavor-image"
+                         id="main-flavor-image">
+
+                    <div class="flavor-dots">
+                        <div class="flavor-dot flavor-dot-1" data-flavor="chocolate">
+                            <i class="fas fa-cookie-bite"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-2" data-flavor="strawberry">
+                            <i class="fas fa-strawberry"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-3" data-flavor="vanilla">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-4" data-flavor="blueberry">
+                            <i class="fas fa-blender"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-5" data-flavor="mint">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-6" data-flavor="caramel">
+                            <i class="fas fa-candy-cane"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+
+        <div class="row">
+            <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-right" data-aos-delay="100">
+                <div class="contact-form">
+                    <h3 class="mb-4">Send us a message</h3>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name *</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name *</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input type="email" class="form-control" id="email" placeholder="john@example.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="(123) 456-7890">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <select class="form-select" id="subject" required>
+                                <option value="" selected disabled>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="catering">Catering Request</option>
+                                <option value="wholesale">Wholesale Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Your Message *</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="newsletter" checked>
+                            <label class="form-check-label" for="newsletter">Subscribe to our newsletter for updates on new flavors and special offers</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-paper-plane me-2"></i> Send Message
+                        </button>
+
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle me-2"></i> Thank you for your message! We'll get back to you within 24 hours.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5" data-aos="fade-left" data-aos-delay="200">
+                <div class="contact-info">
+                    <h3 class="mb-4">Contact Information</h3>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Our Location</h5>
+                            <p>123 Ice Cream Street<br>Sweet City, SC 12345</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h5>Phone Number</h5>
+                            <p>+1 (234) 567-8900</p>
+                            <p class="small">Monday - Friday, 9am-6pm EST</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email Address</h5>
+                            <p>hello@creamybar.com</p>
+                            <p>orders@creamybar.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h5>Opening Hours</h5>
+                            <p><strong>Monday - Friday:</strong> 10:00 AM - 10:00 PM</p>
+                            <p><strong>Saturday - Sunday:</strong> 9:00 AM - 11:00 PM</p>
+                            <p class="small">Holiday hours may vary</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5 class="mb-3">Follow Us</h5>
+                        <div class="social-icons">
+                            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section" id="map" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Find Our Store</h2>
+        <p class="text-center mb-5">Visit us at our flagship location in Sweet City</p>
+
+        <div class="map-container">
+            <div class="map-placeholder">
+                <i class="fas fa-map-marked-alt"></i>
+                <h4>123 Ice Cream Street, Sweet City</h4>
+                <p class="mt-2">Interactive map would be displayed here</p>
+                <a href="https://maps.google.com" target="_blank" class="btn btn-primary mt-3">
+                    <i class="fas fa-directions me-2"></i> Get Directions
+                </a>
+            </div>
+            <!-- In a real implementation, you would embed a Google Maps iframe here -->
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="text-center mb-5">Quick answers to common questions about visiting or contacting Creamy Bar</p>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>What are your COVID-19 safety measures?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We follow all local health guidelines and have implemented enhanced cleaning protocols. Our staff wears masks and gloves, and we offer contactless payment options. We also have spacing markers for lines and limited indoor seating capacity.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer catering for events?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer full-service catering for all types of events from birthday parties to corporate functions. We provide ice cream carts, sundae bars, and customized flavor options. Contact us with your event details for a personalized quote.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I apply for a job at Creamy Bar?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're always looking for enthusiastic team members! You can apply in person at any of our locations or send your resume to careers@creamybar.com. We typically hire for seasonal positions in spring and permanent positions year-round.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you have dairy-free or vegan options?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer a rotating selection of dairy-free flavors made with coconut milk, almond milk, or oat milk. We also have vegan options that contain no animal products. Check our flavor board or ask our staff for the current offerings.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I order custom ice cream cakes?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we create custom ice cream cakes for any occasion! We need at least 48 hours notice for custom cakes. You can choose from our available flavors and design options. Visit our store or call us to place a custom cake order.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Media Section -->
+<section class="social-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Connect With Us Online</h2>
+        <p class="text-center mb-5">Follow us on social media for daily updates, special offers, and behind-the-scenes content</p>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="social-card">
+                    <div class="social-icon facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h4>Facebook</h4>
+                    <p class="text-muted">Follow us for flavor announcements and local events</p>
+                    <a href="#" class="btn btn-outline-primary">Follow creamybar</a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="social-card">
+                    <div class="social-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h4>Instagram</h4>
+                    <p class="text-muted">See mouthwatering photos and customer creations</p>
+                    <a href="#" class="btn btn-outline-primary">Follow creamybar</a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="social-card">
+                    <div class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h4>Twitter</h4>
+                    <p class="text-muted">Join the conversation and get quick updates</p>
+                    <a href="#" class="btn btn-outline-primary">Follow creamybar</a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="social-card">
+                    <div class="social-icon tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h4>TikTok</h4>
+                    <p class="text-muted">Watch fun videos and ice cream making process</p>
+                    <a href="#" class="btn btn-outline-primary">Follow creamybar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

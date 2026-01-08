@@ -1,0 +1,249 @@
+﻿
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<!-- Hero Section with Interactive Flavor Circle -->
+<section class="hero-section" id="home">
+    <div class="strawberries-bg"></div>
+    <div class="left-circle"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Sweet Stories</h1>
+                    <h2 class="hero-subtitle">From Our <span class="logo-font" style="color: var(--secondary);">Ice Cream Kitchen</span></h2>
+                    <p class="lead mb-4">Discover recipes, behind-the-scenes stories, ice cream making tips, and sweet inspirations from our family to yours.</p>
+
+                    <div class="flavor-text" id="current-flavor">
+                        Featured Topic: <span id="flavor-name">Ice Cream Making</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="#featured" class="btn btn-primary">
+                            <i class="fas fa-star me-2"></i> Featured Post
+                        </a>
+                        <a href="#blog-list" class="btn btn-secondary">
+                            <i class="fas fa-book-open me-2"></i> Read All Posts
+                        </a>
+                    </div>
+
+                    <div class="flavor-indicators" id="flavor-indicators">
+                        <!-- Flavor indicators will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="flavor-circle" data-aos="fade-left" data-aos-delay="300">
+                    <div class="circle-decoration"></div>
+
+                    <img src="https://images.unsplash.com/photo-1570196917203-59f2c611a5b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Blog Featured Image"
+                         class="flavor-image"
+                         id="main-flavor-image">
+
+                    <div class="flavor-dots">
+                        <div class="flavor-dot flavor-dot-1" data-flavor="recipes">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-2" data-flavor="tips">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-3" data-flavor="behind">
+                            <i class="fas fa-theater-masks"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-4" data-flavor="seasonal">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-5" data-flavor="history">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-6" data-flavor="health">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Post Section -->
+<section class="featured-post" id="featured">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Featured Story</h2>
+
+        <div class="featured-card" data-aos="fade-up">
+            <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                 alt="The Art of Ice Cream Making"
+                 class="featured-img">
+            <div class="featured-content">
+                <div class="blog-category">Ice Cream Making</div>
+                <h3 class="featured-title">The Art of Crafting Perfect Ice Cream: A Step-by-Step Guide</h3>
+                <div class="blog-meta">
+                    <span><i class="fas fa-user"></i> Maria Ricci</span>
+                    <span><i class="fas fa-calendar"></i> November 15, 2023</span>
+                    <span><i class="fas fa-clock"></i> 8 min read</span>
+                </div>
+                <p class="blog-excerpt">Discover the secrets behind creating the perfect scoop of ice cream. From ingredient selection to churning techniques, learn how we craft our premium ice creams at Creamy Bar. This comprehensive guide covers everything from temperature control to flavor balancing.</p>
+                <a href="#blog-detail" class="blog-read-more" id="read-featured">
+                    Read Full Story <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Blog List Section -->
+<section class="blog-section" id="blog-list">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Latest Stories</h2>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row" id="blog-container">
+                    <!-- Blog posts will be populated by JavaScript -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="text-center mt-5" data-aos="fade-up">
+                    <button class="btn btn-primary" id="load-more-btn">
+                        <i class="fas fa-plus me-2"></i> Load More Posts
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <!-- Search Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
+                        <h4 class="widget-title">Search</h4>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search posts...">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="200">
+                        <h4 class="widget-title">Categories</h4>
+                        <ul class="category-list" id="category-list">
+                            <!-- Categories will be populated by JavaScript -->
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="300">
+                        <h4 class="widget-title">Recent Posts</h4>
+                        <div id="recent-posts">
+                            <!-- Recent posts will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="400">
+                        <h4 class="widget-title">Popular Tags</h4>
+                        <div class="tag-cloud" id="tag-cloud">
+                            <!-- Tags will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title text-white">Stay Updated</h2>
+        <p class="text-center mb-5">Subscribe to our newsletter and never miss a sweet story, recipe, or special announcement.</p>
+
+        <div class="newsletter-form">
+            <form id="blog-newsletter-form">
+                <div class="row g-3">
+                    <div class="col-md-8">
+                        <input type="email" class="form-control" placeholder="Your Email Address" id="blog-email" required>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i> Subscribe
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <p class="mt-3 small">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Detail Section (Initially Hidden) -->
+<section class="blog-detail-section" id="blog-detail" style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <button class="btn btn-outline-primary mb-4" id="back-to-blog">
+                    <i class="fas fa-arrow-left me-2"></i> Back to All Posts
+                </button>
+
+                <div id="blog-detail-content">
+                    <!-- Blog detail content will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Sidebar for Detail Page -->
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <!-- About Author Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left">
+                        <h4 class="widget-title">About The Author</h4>
+                        <div class="text-center">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+                                 alt="Maria Ricci"
+                                 class="author-img mb-3">
+                            <h5>Maria Ricci</h5>
+                            <p class="small">Co-Founder & Master Ice Cream Chef at Creamy Bar. Maria has been crafting delicious ice creams for over 35 years and loves sharing her knowledge with the community.</p>
+                        </div>
+                    </div>
+
+                    <!-- Share Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="100">
+                        <h4 class="widget-title">Share This Post</h4>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="share-btn">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="#" class="share-btn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="share-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Related Posts Widget -->
+                    <div class="sidebar-widget" data-aos="fade-left" data-aos-delay="200">
+                        <h4 class="widget-title">Related Posts</h4>
+                        <div id="related-posts">
+                            <!-- Related posts will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,333 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+}
+
+<!-- Hero Section with Interactive Flavor Circle -->
+<section class="hero-section" id="home">
+    <div class="strawberries-bg"></div>
+    <div class="left-circle"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content" data-aos="fade-right">
+                    <h1 class="hero-title logo-font">Our Story</h1>
+                    <h2 class="hero-subtitle">From a Small Family <span class="logo-font" style="color: var(--secondary);">Recipe to Joy</span></h2>
+                    <p class="lead mb-4">For over three decades, we've been crafting unforgettable ice cream experiences with passion, quality, and a dash of creativity.</p>
+
+                    <div class="flavor-text" id="current-flavor">
+                        Family Recipe: <span id="flavor-name">Ricci's Dream</span>
+                    </div>
+
+                    <div class="mb-4">
+                        <a href="#story" class="btn btn-primary">
+                            <i class="fas fa-book-open me-2"></i> Our Journey
+                        </a>
+                        <a href="#founders" class="btn btn-secondary">
+                            <i class="fas fa-users me-2"></i> Meet Our Founders
+                        </a>
+                    </div>
+
+                    <div class="flavor-indicators" id="flavor-indicators">
+                        <!-- Flavor indicators will be added by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="flavor-circle" data-aos="fade-left" data-aos-delay="300">
+                    <div class="circle-decoration"></div>
+
+                    <img src="https://images.unsplash.com/photo-1570196917203-59f2c611a5b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                         alt="Family Ice Cream"
+                         class="flavor-image"
+                         id="main-flavor-image">
+
+                    <div class="flavor-dots">
+                        <div class="flavor-dot flavor-dot-1" data-flavor="family">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-2" data-flavor="tradition">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-3" data-flavor="quality">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-4" data-flavor="community">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-5" data-flavor="innovation">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="flavor-dot flavor-dot-6" data-flavor="sustainability">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="about-section" id="story" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Our Humble Beginnings</h2>
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1570196917203-59f2c611a5b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                     alt="Ice Cream Making"
+                     class="img-fluid rounded shadow-lg">
+            </div>
+            <div class="col-lg-6">
+                <h3 class="mb-4">A Family Passion Since 1985</h3>
+                <p>Creamy Bar began as a small family-owned ice cream parlor in a quiet neighborhood. Founded by Maria and Giovanni Ricci, our story started with a single secret family recipe passed down through generations.</p>
+                <p>What began as a weekend hobby quickly turned into a neighborhood favorite. The Ricci family's commitment to using only the freshest, highest-quality ingredients and their innovative approach to classic flavors soon gained a loyal following.</p>
+                <p>Today, while we've grown to multiple locations across the country, we still make our ice cream the same way Maria and Giovanni did - with love, patience, and an uncompromising commitment to quality.</p>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1985</div>
+                    <h4>The First Scoop</h4>
+                    <p>Maria and Giovanni Ricci open their first ice cream parlor with just 6 flavors. Their signature "Ricci's Dream" becomes an instant local favorite.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">1995</div>
+                    <h4>First Expansion</h4>
+                    <p>Due to overwhelming demand, Creamy Bar opens its second location. We introduce our first dairy-free options to accommodate more customers.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2005</div>
+                    <h4>National Recognition</h4>
+                    <p>Creamy Bar wins "Best Artisanal Ice Cream" at the National Dessert Awards. We launch our first seasonal flavors collection.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2015</div>
+                    <h4>Sustainability Commitment</h4>
+                    <p>We commit to 100% sustainable sourcing and introduce compostable packaging. Our "Farm to Cone" program launches, partnering with local organic farms.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2023</div>
+                    <h4>Present Day</h4>
+                    <p>With 25 locations nationwide and an online store shipping nationwide, Creamy Bar continues to innovate while staying true to our original family recipes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Mission & Vision -->
+<section class="values-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Our Mission & Vision</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To create moments of pure joy through handcrafted, premium ice cream made with the finest ingredients and a whole lot of love. We believe every scoop should tell a story and bring a smile.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most beloved ice cream brand worldwide, known for our innovation, quality, and commitment to sustainability while maintaining the heart and soul of a family business.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="story-card">
+                    <div class="story-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Our Promise</h3>
+                    <p>We promise to never compromise on quality. Every ingredient is carefully selected, every batch is crafted with care, and every customer experience is designed to delight.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values -->
+<section class="about-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h4>Sustainability</h4>
+                    <p>We're committed to eco-friendly practices, from sourcing ingredients to packaging. Our "Green Scoop" initiative plants a tree for every 100 scoops sold.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Community</h4>
+                    <p>We believe in giving back. We partner with local organizations and donate a portion of our proceeds to children's health and nutrition programs.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Innovation</h4>
+                    <p>While we honor traditional recipes, we're always experimenting with new flavors and techniques to surprise and delight our customers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>Quality</h4>
+                    <p>We source only the finest ingredients from trusted suppliers. Every batch undergoes rigorous quality checks before it reaches our customers.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Integrity</h4>
+                    <p>We believe in transparency and honesty in everything we do - from our ingredient lists to our business practices.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-laugh-beam"></i>
+                    </div>
+                    <h4>Joy</h4>
+                    <p>At the heart of everything we do is the desire to spread happiness. We believe ice cream has the power to brighten anyone's day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title text-white">Creamy Bar By The Numbers</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-number">38</div>
+                    <div class="stat-label">Years of Sweetness</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Flavors Created</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Locations Nationwide</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-item">
+                    <div class="stat-number">2M+</div>
+                    <div class="stat-label">Scoops Served Yearly</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Meet The Founders -->
+<section class="about-section" id="founders" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">Meet The Founders</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                         class="team-img"
+                         alt="Maria Ricci">
+                    <h3>Maria Ricci</h3>
+                    <p class="text-muted">Co-Founder & Master Ice Cream Chef</p>
+                    <p>Maria's passion for ice cream began in her grandmother's kitchen in Italy. She brings traditional techniques and a creative flair to every flavor we create.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                         class="team-img"
+                         alt="Giovanni Ricci">
+                    <h3>Giovanni Ricci</h3>
+                    <p class="text-muted">Co-Founder & Operations Director</p>
+                    <p>Giovanni ensures every aspect of Creamy Bar runs smoothly. His business acumen and commitment to quality have been instrumental in our growth.</p>
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-10 mx-auto">
+                <div class="story-card text-center" data-aos="fade-up">
+                    <h3 class="mb-4">A Message From The Ricci Family</h3>
+                    <blockquote class="blockquote">
+                        <p class="lead">"When we started Creamy Bar, we had a simple dream: to share our family's love for ice cream with our community. We never imagined it would grow into what it is today. But through all the changes and growth, one thing remains the same - every batch is still made with the same care and attention as that very first scoop in 1985. Thank you for being part of our sweet journey."</p>
+                        <footer class="blockquote-footer mt-3">Maria & Giovanni Ricci</footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

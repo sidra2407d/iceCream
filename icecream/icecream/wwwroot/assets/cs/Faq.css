@@ -1,0 +1,557 @@
+        :root {
+            --primary: #ff66b2;
+            --secondary: #ffcc00;
+            --light: #fff9f5;
+            --dark: #2c2c54;
+            --accent: #9d65c9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+        }
+        
+        .logo-font {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-size: 2.2rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark) !important;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--primary) !important;
+            font-weight: 600;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 50px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(44,44,84,0.85) 50%, rgba(0,0,0,0.85) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #ff3385;
+            border-color: #ff3385;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 102, 178, 0.3);
+        }
+        
+        /* Animated Ice Cream Cone */
+        .icecream-cone {
+            position: relative;
+            width: 300px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        .cone {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 180px;
+            background: linear-gradient(to right, #d2691e, #a0522d, #8b4513);
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .scoop {
+            position: absolute;
+            width: 200px;
+            height: 180px;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .scoop-1 {
+            background: linear-gradient(135deg, var(--primary), #ff99cc);
+            bottom: 160px;
+            z-index: 3;
+            animation: floatScoop 4s ease-in-out infinite;
+        }
+        
+        .scoop-2 {
+            background: linear-gradient(135deg, var(--secondary), #ffdd66);
+            bottom: 110px;
+            z-index: 2;
+            animation: floatScoop 4s ease-in-out infinite 0.5s;
+            width: 210px;
+        }
+        
+        .scoop-3 {
+            background: linear-gradient(135deg, var(--accent), #c9a0ff);
+            bottom: 60px;
+            z-index: 1;
+            animation: floatScoop 4s ease-in-out infinite 1s;
+            width: 220px;
+        }
+        
+        @keyframes floatScoop {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+        
+        .drip {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--primary), #ff99cc);
+            border-radius: 0 0 15px 15px;
+            bottom: 155px;
+            z-index: 2;
+            animation: drip 4s ease-in-out infinite;
+        }
+        
+        .drip-1 { left: 40%; }
+        .drip-2 { left: 60%; animation-delay: 0.2s; }
+        
+        @keyframes drip {
+            0%, 100% { height: 20px; opacity: 0.8; }
+            50% { height: 40px; opacity: 1; }
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* FAQ Categories */
+        .faq-categories {
+            margin-bottom: 50px;
+        }
+        
+        .category-btn {
+            background-color: var(--light);
+            border: 2px solid transparent;
+            color: var(--dark);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0 10px 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 102, 178, 0.2);
+        }
+        
+        /* FAQ Accordion */
+        .faq-accordion {
+            margin-bottom: 50px;
+        }
+        
+        .accordion-item {
+            border: none;
+            background-color: transparent;
+            margin-bottom: 20px;
+            border-radius: 15px !important;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .accordion-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .accordion-button {
+            background-color: white;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 25px 30px;
+            border: none;
+            border-radius: 15px !important;
+            transition: all 0.3s;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: white;
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: rgba(255, 102, 178, 0.2);
+        }
+        
+        .accordion-button:after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ff66b2'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            transform: scale(1.2);
+            transition: transform 0.3s;
+        }
+        
+        .accordion-button:not(.collapsed):after {
+            transform: rotate(-180deg) scale(1.2);
+        }
+        
+        .accordion-body {
+            padding: 25px 30px;
+            background-color: white;
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            border-top: 1px solid rgba(255, 102, 178, 0.1);
+        }
+        
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 102, 178, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        /* FAQ Stats */
+        .faq-stats {
+            background: linear-gradient(135deg, rgba(255,102,178,0.05) 0%, rgba(255,204,0,0.05) 100%);
+            padding: 80px 0;
+            border-radius: 30px;
+            margin: 80px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .stat-text {
+            font-size: 1.1rem;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        /* Contact CTA */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 80px 0;
+            border-radius: 30px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+        
+        .contact-cta h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-light:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+         /* Footer */
+               .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-contact i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        .chat-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(255, 102, 178, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .icecream-cone {
+                width: 250px;
+                height: 420px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .icecream-cone {
+                margin-top: 50px;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .icecream-cone {
+                width: 200px;
+                height: 350px;
+            }
+            
+            .scoop {
+                height: 140px;
+            }
+            
+            .scoop-1 { bottom: 130px; }
+            .scoop-2 { bottom: 90px; width: 170px; }
+            .scoop-3 { bottom: 50px; width: 180px; }
+            
+            .accordion-button {
+                padding: 20px;
+                font-size: 1rem;
+            }
+            
+            .accordion-body {
+                padding: 20px;
+            }
+            
+            .faq-icon {
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+            }
+            
+            .contact-cta h3 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .category-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                margin: 0 5px 10px 0;
+            }
+            
+            .stat-item {
+                margin-bottom: 30px;
+            }
+        }
+
+
+
+        
+       /* ============================= */
+/* CONE ICE CREAM CURSOR STYLES */
+/* ============================= */
+
+/* Default cone ice cream cursor */
+* {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48"><defs><linearGradient id="coneGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FFB347;stop-opacity:1"/><stop offset="100%" style="stop-color:%23FFCC33;stop-opacity:1"/></linearGradient></defs><path fill="url(%23coneGrad)" d="M16 40L8 16 24 16z" transform="rotate(0 16 28)"/><ellipse fill="%23FF9A8B" cx="16" cy="14" rx="12" ry="10"/><ellipse fill="%2398FF98" cx="16" cy="8" rx="8" ry="6"/><ellipse fill="%23FFD166" cx="16" cy="4" rx="4" ry="3"/><circle fill="white" cx="12" cy="8" r="1.5"/><circle fill="white" cx="20" cy="8" r="1.5"/></svg>') 16 24, auto;
+}
+
+/* Clickable elements - different ice cream flavors on cone */
+a, button, .btn, .nav-link, .flavor-dot, 
+.flavor-indicator, .pricing-card, .blog-card,
+.team-card, .flavor-card, .chat-bubble, .faq-question,
+.gallery-img, .footer a, .social-icons a, 
+.blog-card a, .pricing-card a {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="52" viewBox="0 0 36 52"><defs><linearGradient id="cone2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23D2691E;stop-opacity:1"/><stop offset="100%" style="stop-color:%238B4513;stop-opacity:1"/></linearGradient></defs><path fill="url(%23cone2)" d="M18 44L10 20 26 20z" transform="rotate(0 18 32)"/><ellipse fill="%23FF6B6B" cx="18" cy="16" rx="12" ry="10"/><ellipse fill="%234A90E2" cx="18" cy="10" rx="8" ry="6"/><ellipse fill="%23FFD166" cx="18" cy="6" rx="4" ry="3"/><circle fill="white" cx="14" cy="10" r="1.5" opacity="0.8"/><circle fill="white" cx="22" cy="10" r="1.5" opacity="0.8"/></svg>') 18 26, pointer !important;
+}
+
+/* Hover effect - melting ice cream cone */
+.btn:hover, a:hover, .nav-link:hover, .flavor-dot:hover,
+.pricing-card:hover, .blog-card:hover, .team-card:hover,
+.flavor-card:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="56" viewBox="0 0 40 56"><defs><linearGradient id="coneHover" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23A0522D;stop-opacity:1"/><stop offset="100%" style="stop-color:%238B4513;stop-opacity:1"/></linearGradient></defs><path fill="url(%23coneHover)" d="M20 48L12 24 28 24z" transform="rotate(0 20 36)"/><ellipse fill="%23FF3366" cx="20" cy="18" rx="14" ry="10" transform="translate(0 2)"/><ellipse fill="%2398FF98" cx="20" cy="12" rx="10" ry="6" transform="translate(0 1)"/><ellipse fill="%23FF9A8B" cx="20" cy="8" rx="6" ry="4"/><path fill="%23FF3366" d="M14 24C10 24 8 28 8 32c0 2 2 4 4 4s4-2 4-4c0-4-2-8-2-8z" opacity="0.7"/><circle fill="white" cx="16" cy="12" r="1.5"/><circle fill="white" cx="24" cy="12" r="1.5"/></svg>') 20 28, pointer !important;
+}
+
+/* Text inputs - chocolate dipped cone */
+input, textarea, select {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="34" height="50" viewBox="0 0 34 50"><defs><linearGradient id="coneText" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%238B4513;stop-opacity:1"/><stop offset="100%" style="stop-color:%23592B0F;stop-opacity:1"/></linearGradient></defs><path fill="url(%23coneText)" d="M17 42L9 18 25 18z" transform="rotate(0 17 30)"/><path fill="%236B4423" d="M17 18C9 18 3 24 3 30c0 6 6 12 14 12s14-6 14-12S25 18 17 18z" opacity="0.9"/><ellipse fill="%23FFD166" cx="17" cy="14" rx="10" ry="8"/><ellipse fill="%23FF9A8B" cx="17" cy="8" rx="6" ry="4"/><circle fill="white" cx="13" cy="14" r="1" opacity="0.6"/><circle fill="white" cx="21" cy="14" r="1" opacity="0.6"/></svg>') 17 25, text !important;
+}
+
+/* Alternative simple cone cursor for slower devices */
+@media (max-width: 1024px) {
+    * {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="36" viewBox="0 0 24 36"><path fill="%23D2691E" d="M12 30L6 12 18 12z"/><circle fill="%23FF9A8B" cx="12" cy="8" r="6"/></svg>') 12 18, auto;
+    }
+    
+    a, button, .btn {
+        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="36" viewBox="0 0 24 36"><path fill="%238B4513" d="M12 30L6 12 18 12z"/><circle fill="%23FF6B6B" cx="12" cy="8" r="6"/></svg>') 12 18, pointer !important;
+    }
+}
+
+/* Mobile responsive - disable custom cursor on mobile */
+@media (max-width: 768px) {
+    * {
+        cursor: auto !important;
+    }
+    
+    a, button, .btn {
+        cursor: pointer !important;
+    }
+}
+
+/* Animation for the default cone cursor (subtle bounce) */
+@keyframes coneBounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-2px) rotate(1deg); }
+}
+
+/* Apply animation to hoverable elements */
+a:hover, button:hover, .btn:hover, .nav-link:hover {
+    animation: coneBounce 0.5s ease-in-out;
+}

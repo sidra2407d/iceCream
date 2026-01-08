@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>@ViewData["Title"] - CreamyBar Admin</title>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+ <link rel="stylesheet" href="~/dashboard/css/dashboard.css" asp-append-version="true" />
+ <link rel="stylesheet" href="~/dashboard/css/style.css" asp-append-version="true" />
+
+ <style>
+ /* Small enhancements for sidebar icons */
+ .nav-links { padding:0; margin:0; list-style: none; }
+ .nav-links a { display:flex; align-items:center; gap:10px; padding:10px14px; color: #2b2b2b; text-decoration:none; border-radius:8px; }
+ .nav-links a .nav-icon { display:inline-flex; width:28px; justify-content:center; font-size:1.05rem; color:#6c757d; }
+ .nav-links a .nav-text { font-weight:600; }
+ .nav-links a.active, .nav-links a:hover { background: rgba(255,105,135,0.08); color:#ff6a88; }
+ .nav-links a.active .nav-icon, .nav-links a:hover .nav-icon { color:#ff6a88; }
+ .nav-links li + li { margin-top:6px; }
+ </style>
+
+ @RenderSection("Styles", required: false)
+</head>
+<body>
+
+ <nav class="sidebar">
+ <div class="logo-container">
+ <h2>
+ <div class="icecream-cone">
+ <div class="scoop"></div>
+ <div class="cone"></div>
+ <div class="cherry"></div>
+ </div>
+ <span class="logo-text">CreamyBar</span>
+ </h2>
+ </div>
+ <ul class="nav-links">
+ <li>
+ <a asp-controller="Dashboard" asp-action="Index" class="active" title="Dashboard" aria-label="Dashboard">
+ <span class="nav-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
+ <span class="nav-text">Dashboard</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Users" asp-action="Index" title="Users" aria-label="Users">
+ <span class="nav-icon"><i class="fa-solid fa-user-group" aria-hidden="true"></i></span>
+ <span class="nav-text">Users</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Orders" asp-action="Index" title="Orders" aria-label="Orders">
+ <span class="nav-icon"><i class="fa-solid fa-receipt" aria-hidden="true"></i></span>
+ <span class="nav-text">Orders</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Analytics" asp-action="Index" title="Analytics" aria-label="Analytics">
+ <span class="nav-icon"><i class="fa-solid fa-chart-pie" aria-hidden="true"></i></span>
+ <span class="nav-text">Analytics</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Settings" asp-action="Index" title="Settings" aria-label="Settings">
+ <span class="nav-icon"><i class="fa-solid fa-gear" aria-hidden="true"></i></span>
+ <span class="nav-text">Settings</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Feedbacks" asp-action="Index" title="Feedback" aria-label="Feedback">
+ <span class="nav-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
+ <span class="nav-text">Feedback</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="Recipes" asp-action="Index" title="Recipes" aria-label="Recipes">
+ <span class="nav-icon"><i class="fa-solid fa-ice-cream" aria-hidden="true"></i></span>
+ <span class="nav-text">Recipes</span>
+ </a>
+ </li>
+
+ <li>
+ <a asp-controller="RecipeBooks" asp-action="Index" title="Recipe Books" aria-label="Recipe Books">
+ <span class="nav-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+ <span class="nav-text">Recipe Books</span>
+ </a>
+ </li>
+ </ul>
+ </nav>
+
+ <main class="main-content">
+
+ <header class="header">
+ <h1>
+ <div class="icecream-cone" style="width:40px; height:48px; display: inline-block; vertical-align: middle;">
+ <div class="scoop" style="width:32px; height:28px;"></div>
+ <div class="cone" style="width:22px; height:24px;"></div>
+ </div>
+ CreamyBar Admin Dashboard
+ </h1>
+ <div class="admin-info">
+ <div class="admin-avatar">CB</div>
+ <div>
+ <h3>CreamyBar Admin</h3>
+ <p>Super Administrator</p>
+ </div>
+ <button class="logout-btn" title="Logout" aria-label="Logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+ </div>
+ </header>
+
+ <div class="container-fluid">
+ @RenderBody()
+ </div>
+
+ </main>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script src="~/dashboard/js/chart.js" asp-append-version="true"></script>
+ <script src="~/dashboard/js/main.js" asp-append-version="true"></script>
+ <script src="~/dashboard/js/navigation.js" asp-append-version="true"></script>
+
+
+ @RenderSection("Scripts", required: false)
+</body>
+</html>

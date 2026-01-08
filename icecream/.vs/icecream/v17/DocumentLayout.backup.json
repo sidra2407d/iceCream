@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\views\\shared\\_dashlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\views\\shared\\_dashlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\views\\users\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\views\\users\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|c:\\users\\administrator\\downloads\\icecream\\icecream\\icecream\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DF3918FD-A331-443D-A74C-FD82BF344921}|icecream\\icecream.csproj|solutionrelative:icecream\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Views\\Users\\Login.cshtml",
+              "RelativeDocumentMoniker": "icecream\\Views\\Users\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Views\\Users\\Login.cshtml",
+              "RelativeToolTip": "icecream\\Views\\Users\\Login.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAFcAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-08T11:13:10.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_DashLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Views\\Shared\\_DashLayout.cshtml",
+              "RelativeDocumentMoniker": "icecream\\Views\\Shared\\_DashLayout.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Views\\Shared\\_DashLayout.cshtml*",
+              "RelativeToolTip": "icecream\\Views\\Shared\\_DashLayout.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-08T11:18:47.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Program.cs",
+              "RelativeDocumentMoniker": "icecream\\Program.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Program.cs",
+              "RelativeToolTip": "icecream\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T11:18:23.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "icecream\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "icecream\\Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAUwG8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-08T11:14:25.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "icecream\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "icecream\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAmwJwAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T11:10:15.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Models\\User.cs",
+              "RelativeDocumentMoniker": "icecream\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\Models\\User.cs",
+              "RelativeToolTip": "icecream\\Models\\User.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T11:06:10.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\appsettings.json",
+              "RelativeDocumentMoniker": "icecream\\appsettings.json",
+              "ToolTip": "C:\\Users\\Administrator\\Downloads\\icecream\\icecream\\icecream\\appsettings.json",
+              "RelativeToolTip": "icecream\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-08T11:00:44.37Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
